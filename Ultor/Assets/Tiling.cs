@@ -9,10 +9,8 @@ public class Tiling : MonoBehaviour
 
     public int offsetX = 2;
 
-    public bool hasARightBuddy = false;
-    public bool hasALeftBuddy = false;
-
-    public bool reverseScale = false;
+    public bool hasARightBuddy;
+    public bool hasALeftBuddy;
 
     private float spriteWidth = 0.0f;
     private Camera cam;
@@ -29,7 +27,7 @@ public class Tiling : MonoBehaviour
     void Start()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteWidth = spriteRenderer.sprite.bounds.size.x * myTransform.localScale.x;
+        spriteWidth = spriteRenderer.bounds.size.x;
     }
 
 
@@ -65,12 +63,11 @@ public class Tiling : MonoBehaviour
 
 
         // make tile seem like it's a continuation of tile.
-        if (reverseScale)
-        {
-            newBuddy.localScale = new Vector3(newBuddy.localScale.x * -1, newBuddy.localScale.y, newBuddy.localScale.z);
-        }
+        
+        newBuddy.localScale = new Vector3(newBuddy.localScale.x * -1, newBuddy.localScale.y, newBuddy.localScale.z);
+        
 
-        newBuddy.parent = myTransform;
+        newBuddy.parent = myTransform.parent;
         if (rightOrLeft > 0)
         {
             newBuddy.GetComponent<Tiling>().hasALeftBuddy = true;
