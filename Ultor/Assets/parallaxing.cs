@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class parallaxing : MonoBehaviour
+public class Parallaxing : MonoBehaviour
 {
     public Transform[] backgrounds;
     private float[] parallaxScales;
