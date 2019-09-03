@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Parallaxing.cs" />
     <Compile Include="Assets\Tiling.cs" />
+    <Compile Include="Assets\Weapon.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
