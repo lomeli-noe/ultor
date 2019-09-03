@@ -5,7 +5,7 @@
       <File FileName="Assets/Tiling.cs" Line="67" Column="43" />
       <File FileName="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" Line="8" Column="54" />
       <File FileName="Assets/Standard Assets/2D/Scripts/Platformer2DUserControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Weapon.cs" Line="169" Column="33" />
+      <File FileName="Assets/Weapon.cs" Line="189" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
