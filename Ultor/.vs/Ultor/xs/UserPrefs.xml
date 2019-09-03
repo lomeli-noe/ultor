@@ -1,16 +1,17 @@
 ﻿<Properties StartupConfiguration="{D84C30B8-797C-CAD1-BCCA-C91F06773295}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Weapon.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MoveTrail.cs">
     <Files>
       <File FileName="Assets/Standard Assets/2D/Scripts/Camera2DFollow.cs" Line="2" Column="19" />
-      <File FileName="Assets/Tiling.cs" Line="67" Column="43" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" Line="8" Column="54" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/Platformer2DUserControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Weapon.cs" Line="189" Column="12" />
+      <File FileName="Assets/Tiling.cs" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" Line="115" Column="53" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/Platformer2DUserControl.cs" />
+      <File FileName="Assets/Weapon.cs" Line="181" Column="50" />
+      <File FileName="Assets/MoveTrail.cs" Line="19" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8cd6786c-98f7-4eed-94db-779f55af862a" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f5624a72-1ec5-45b4-844a-f0f3ce82f618" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

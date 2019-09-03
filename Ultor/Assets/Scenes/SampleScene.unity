@@ -758,38 +758,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &882527545 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4891096323304987096, guid: 6421e148a30f243858fef69bcc3bd6f4,
-    type: 3}
-  m_PrefabInstance: {fileID: 4891096323094893793}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &882527548
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882527545}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!4 &1060533278 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4891096323484033279, guid: 6421e148a30f243858fef69bcc3bd6f4,
@@ -1524,6 +1492,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 4891096323484033279, guid: 6421e148a30f243858fef69bcc3bd6f4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891096323484033279, guid: 6421e148a30f243858fef69bcc3bd6f4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 4891096323304987099, guid: 6421e148a30f243858fef69bcc3bd6f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1590,5 +1568,32 @@ PrefabInstance:
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1060533278}
+    - target: {fileID: 4891096323304987098, guid: 6421e148a30f243858fef69bcc3bd6f4,
+        type: 3}
+      propertyPath: muzzleFlash
+      value: 
+      objectReference: {fileID: 5887488227301658286, guid: cf3262434b7ac41d8b1aecbd30f032d9,
+        type: 3}
+    - target: {fileID: 4891096323304987098, guid: 6421e148a30f243858fef69bcc3bd6f4,
+        type: 3}
+      propertyPath: currentAmmo
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891096323304987098, guid: 6421e148a30f243858fef69bcc3bd6f4,
+        type: 3}
+      propertyPath: bulletTrail
+      value: 
+      objectReference: {fileID: 5887488227301658286, guid: cf3262434b7ac41d8b1aecbd30f032d9,
+        type: 3}
+    - target: {fileID: 4891096323304987098, guid: 6421e148a30f243858fef69bcc3bd6f4,
+        type: 3}
+      propertyPath: maxAmmo
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891096323304987098, guid: 6421e148a30f243858fef69bcc3bd6f4,
+        type: 3}
+      propertyPath: ammunition
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6421e148a30f243858fef69bcc3bd6f4, type: 3}

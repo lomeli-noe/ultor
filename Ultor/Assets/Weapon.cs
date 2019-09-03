@@ -8,10 +8,11 @@ public class Weapon : MonoBehaviour
     public int Damage = 25;
     public LayerMask whatToHit;
 
-    //public GameObject bullet;
+    public GameObject bullet;
     public Transform firePoint;
-    //public Transform muzzleFlash;
+    public Transform bulletTrail;
     //public Transform hitPrefab;
+
 
     // Ammunition
     public int maxAmmo = 10;
@@ -131,7 +132,7 @@ public class Weapon : MonoBehaviour
             return;
         }
 
-        Vector2 dir = new Vector2(firePoint.position.x + 40, firePoint.position.y);
+        Vector2 dir = new Vector2(firePoint.position.x + 100, firePoint.position.y);
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
 
         if (transform.localScale.x < 0f)
@@ -177,8 +178,8 @@ public class Weapon : MonoBehaviour
 
     void Effect(Vector3 hitPos, Vector3 hitNormal)
     {
-        //Transform clone = Instantiate(muzzleFlash, firePoint.position, firePoint.rotation) as Transform;
-        //clone.parent = firePoint;
+        Transform clone = Instantiate(bulletTrail, firePoint.position, firePoint.rotation) as Transform;
+        clone.parent = firePoint;
         float size = Random.Range(0.6f, 0.9f);
         //clone.localScale = new Vector3(size, size, size);
         //Destroy(clone.gameObject, 0.04f);
