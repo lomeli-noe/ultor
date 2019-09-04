@@ -60,8 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GameMaster.cs" />
     <Compile Include="Assets\MoveTrail.cs" />
     <Compile Include="Assets\Parallaxing.cs" />
+    <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\Tiling.cs" />
     <Compile Include="Assets\Weapon.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

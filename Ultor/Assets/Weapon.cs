@@ -141,7 +141,7 @@ public class Weapon : MonoBehaviour
         }
 
         RaycastHit2D hit = Physics2D.Raycast(firePointPosition, dir - firePointPosition, 100, whatToHit);
-        Debug.DrawLine(firePointPosition, (dir - firePointPosition), Color.cyan);
+        //Debug.DrawLine(firePointPosition, (dir - firePointPosition), Color.cyan);
 
         if (Time.time >= timeToSpawnEffect)
         {
