@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - FirePoint
+  - GM
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - Player
   - Background
-  - 
+  - Ground
   - 
   - 
   - 
@@ -43,12 +44,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 1057176147
+  - name: Foreground
+    uniqueID: 632532803
     locked: 0
   - name: Player
     uniqueID: 332696219
     locked: 0
-  - name: Foreground
-    uniqueID: 632532803
+  - name: Ground
+    uniqueID: 2249405305
+    locked: 0
+  - name: Background
+    uniqueID: 1057176147
     locked: 0
