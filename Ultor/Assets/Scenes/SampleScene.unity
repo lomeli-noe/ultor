@@ -1292,5 +1292,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8424177009521740287, guid: 15af2b647335644328103fc17a811e7f,
         type: 3}
+    - target: {fileID: 5601804484644894366, guid: d3eec54013ab74439915b79df6300037,
+        type: 3}
+      propertyPath: spawnDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601804484644894366, guid: d3eec54013ab74439915b79df6300037,
+        type: 3}
+      propertyPath: respawnAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 2a7a1e24678714fa19c041fc078c63fe, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3eec54013ab74439915b79df6300037, type: 3}
