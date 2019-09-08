@@ -16,7 +16,7 @@ public class GameMaster : MonoBehaviour
 
     public Transform playerPrefab;
     public Transform spawnPoint;
-    public int spawnDelay = 2;
+    public float spawnDelay = 2;
     public Transform spawnPrefab;
     public AudioClip respawnAudio;
 
