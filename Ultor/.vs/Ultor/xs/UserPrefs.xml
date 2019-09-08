@@ -1,19 +1,19 @@
 ﻿<Properties StartupConfiguration="{D84C30B8-797C-CAD1-BCCA-C91F06773295}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameMaster.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/2D/Scripts/Camera2DFollow.cs">
     <Files>
-      <File FileName="Assets/Standard Assets/2D/Scripts/Camera2DFollow.cs" Line="49" Column="81" />
-      <File FileName="Assets/Tiling.cs" Line="79" Column="6" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/Platformer2DUserControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Weapon.cs" Line="95" Column="17" />
-      <File FileName="Assets/MoveTrail.cs" Line="7" Column="29" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" Line="51" Column="29" />
-      <File FileName="Assets/Player.cs" Line="19" Column="41" />
-      <File FileName="Assets/GameMaster.cs" Line="19" Column="1" />
+      <File FileName="Assets/Parallaxing.cs" Line="47" Column="1" />
+      <File FileName="Assets/Scripts/GameMaster.cs" Line="12" Column="1" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/Camera2DFollow.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>PackageToolsEditor.csproj</String>
+    <String>AstarPathfindingProjectEditor.csproj</String>
+    <String>AstarPathfindingProject.csproj</String>
+  </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f5624a72-1ec5-45b4-844a-f0f3ce82f618" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="225bf1db-d28a-40c7-9e51-3145efe1e253" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
