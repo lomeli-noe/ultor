@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     float timeToFire = 0f;
     Transform firePoint;
     public Transform MuzzleFlashPrefab;
+    public Transform HitPrefab;
 
     private void Awake()
     {
@@ -51,11 +52,7 @@ public class Weapon : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(firePointPosition, dir - firePointPosition, 100, whatToHit);
 
-        if(Time.time >= timeToSpawnEffect)
-        {
-            Effect();
-            timeToSpawnEffect = Time.time + 1 / effectSpawnRate;
-        }
+        
 
         if (hit.collider != null)
         {
@@ -66,13 +63,37 @@ public class Weapon : MonoBehaviour
                 enemy.DamageEnemy(Damage);
 
             }
+        }
 
+        if (Time.time >= timeToSpawnEffect)
+        {
+            Vector3 hitNormal;
+            Vector3 hitPos;
+
+            if(hit.collider == null)
+            {
+                hitNormal = new Vector3(9999, 9999, 9999);
+                hitPos = hit.point;
+            }
+            else
+            {
+                hitPos = hit.point;
+                hitNormal = hit.normal;
+            }
+
+            Effect(hitPos, hitNormal);
+            timeToSpawnEffect = Time.time + 1 / effectSpawnRate;
         }
     }
 
-    void Effect()
+    void Effect(Vector3 hitPos, Vector3 hitNormal)
     {
-        Debug.Log("Effect!!!");
+        if(hitNormal != new Vector3(9999, 9999, 9999))
+        {
+            Transform hitParticle = Instantiate(HitPrefab, hitPos, Quaternion.FromToRotation(Vector3.right, hitNormal)) as Transform;
+            Destroy(hitParticle.gameObject, 1f);
+        }
+
         Transform clone = Instantiate(MuzzleFlashPrefab, firePoint.position, firePoint.rotation) as Transform;
         clone.parent = firePoint;
         float size = Random.Range(0.6f, 0.9f);
