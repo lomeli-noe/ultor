@@ -13,6 +13,10 @@ public class Weapon : MonoBehaviour
     public Transform MuzzleFlashPrefab;
     public Transform HitPrefab;
 
+    public float camShakeAmt = 0.05f;
+    public float camShakeLength = 0.1f;
+    CameraShake camShake;
+
     private void Awake()
     {
         firePoint = transform.Find("FirePoint");
@@ -21,6 +25,15 @@ public class Weapon : MonoBehaviour
             Debug.LogError("No Firepoint!!!!");
         }
      }
+
+    private void Start()
+    {
+        camShake = GameMaster.gm.GetComponent<CameraShake>();
+        if(camShake == null)
+        {
+            Debug.LogError("No camera shake script found on GM object.");
+        }
+    }
 
     private void Update()
     {
@@ -99,5 +112,7 @@ public class Weapon : MonoBehaviour
         float size = Random.Range(0.6f, 0.9f);
         clone.localScale = new Vector3(-size, size, size);
         Destroy(clone.gameObject, 0.1f);
+
+        camShake.Shake(camShakeAmt, camShakeLength);
     }
 }

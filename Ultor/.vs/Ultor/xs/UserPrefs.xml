@@ -1,15 +1,15 @@
 ﻿<Properties StartupConfiguration="{D84C30B8-797C-CAD1-BCCA-C91F06773295}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Enemy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CameraShake.cs">
     <Files>
       <File FileName="Assets/Parallaxing.cs" Line="47" Column="1" />
-      <File FileName="Assets/Scripts/GameMaster.cs" Line="39" Column="1" />
+      <File FileName="Assets/Scripts/GameMaster.cs" Line="44" Column="1" />
       <File FileName="Assets/Scripts/Player.cs" Line="35" Column="1" />
       <File FileName="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" Line="121" Column="1" />
-      <File FileName="Assets/Scripts/Weapon.cs" Line="75" Column="38" />
+      <File FileName="Assets/Scripts/Weapon.cs" Line="103" Column="2" />
       <File FileName="Assets/Scripts/MoveTrail.cs" Line="10" Column="42" />
       <File FileName="Assets/AstarPathfindingProject/Core/AstarPath.cs" Line="837" Column="1" />
-      <File FileName="Assets/Scripts/EnemyAI.cs" Line="56" Column="46" />
-      <File FileName="Assets/Enemy.cs" Line="19" Column="1" />
+      <File FileName="Assets/Scripts/EnemyAI.cs" Line="159" Column="1" />
+      <File FileName="Assets/CameraShake.cs" Line="19" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -24,5 +24,4 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp-Editor-firstpass PreferredExecutionTarget="b962972c-3d1f-4c2a-aa4a-12538912858f" />
 </Properties>
