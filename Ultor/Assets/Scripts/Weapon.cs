@@ -4,7 +4,7 @@ using System.Collections;
 public class Weapon : MonoBehaviour
 {
     public float fireRate = 0f;
-    public float Damage = 10;
+    public int Damage = 10;
     public LayerMask whatToHit;
     float timeToSpawnEffect = 0f;
     public float effectSpawnRate = 10;
@@ -42,7 +42,6 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("Shooting!!!");
         Vector2 dir = new Vector2(Camera.main.ScreenToWorldPoint(firePoint.position).x + 100, Camera.main.ScreenToWorldPoint(firePoint.position).y + 5);
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
         if (transform.localScale.x < 0f)
@@ -60,8 +59,14 @@ public class Weapon : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Debug.DrawLine(firePointPosition, hit.point, Color.red);
-            Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage.");
+            //Debug.DrawLine(firePointPosition, hit.point, Color.red);
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            if(enemy != null)
+            {
+                enemy.DamageEnemy(Damage);
+
+            }
+
         }
     }
 
