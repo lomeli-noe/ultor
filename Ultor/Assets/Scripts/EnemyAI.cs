@@ -53,7 +53,7 @@ public class EnemyAI : MonoBehaviour {
         GameObject sResult = GameObject.FindGameObjectWithTag("Player");
         if(sResult == null)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             StartCoroutine(SearchForPlayer());
         }
         else
