@@ -94,12 +94,12 @@ public class Weapon : MonoBehaviour
                 hitNormal = hit.normal;
             }
 
-            Effect(hitPos, hitNormal);
+            StartCoroutine(Effect(hitPos, hitNormal));
             timeToSpawnEffect = Time.time + 1 / effectSpawnRate;
         }
     }
 
-    void Effect(Vector3 hitPos, Vector3 hitNormal)
+    IEnumerator Effect(Vector3 hitPos, Vector3 hitNormal)
     {
         if(hitNormal != new Vector3(9999, 9999, 9999))
         {
@@ -107,11 +107,12 @@ public class Weapon : MonoBehaviour
             Destroy(hitParticle.gameObject, 1f);
         }
 
+		yield return new WaitForSeconds(.07f);
         Transform clone = Instantiate(MuzzleFlashPrefab, firePoint.position, firePoint.rotation) as Transform;
         clone.parent = firePoint;
         float size = Random.Range(0.6f, 0.9f);
         clone.localScale = new Vector3(-size, size, size);
-        Destroy(clone.gameObject, 0.1f);
+        Destroy(clone.gameObject, 0.05f);
 
         camShake.Shake(camShakeAmt, camShakeLength);
     }

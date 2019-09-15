@@ -14,7 +14,6 @@ namespace UnityStandardAssets._2D
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
         private bool m_Grounded;            // Whether or not the player is grounded.
-		private bool m_Shooting;
         private Transform m_CeilingCheck;   // A position marking where to check for ceilings
         const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
         private Animator m_Anim;            // Reference to the player's animator component.
@@ -40,7 +39,6 @@ namespace UnityStandardAssets._2D
         private void FixedUpdate()
         {
             m_Grounded = false;
-			m_Shooting = false;
 
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             // This can be done using layers instead but Sample Assets will not overwrite your project settings.
@@ -57,7 +55,7 @@ namespace UnityStandardAssets._2D
         }
 
 
-        public void Move(float move, bool crouch, bool jump)
+        public void Move(float move, bool crouch, bool jump, bool shoot)
         {
             // If crouching, check to see if the character can stand up
             if (!crouch && m_Anim.GetBool("Crouch"))
@@ -71,6 +69,8 @@ namespace UnityStandardAssets._2D
 
             // Set whether or not the character is crouching in the animator
             m_Anim.SetBool("Crouch", crouch);
+
+			m_Anim.SetBool("Shoot", shoot);
 
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
