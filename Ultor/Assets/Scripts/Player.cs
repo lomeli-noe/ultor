@@ -47,7 +47,12 @@ public class Player : MonoBehaviour
         {
             DamagePlayer(99999);
         }
-    }
+
+		if (statusIndicator == null)
+		{
+			statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
+		}
+	}
 
 
 

@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
             set { _curHealth = Mathf.Clamp(value, 0, maxHealth); }
         }
 
-        public int damage = 40;
+        public int damage = 20;
 
         public void Init()
         {
