@@ -17,11 +17,14 @@ public class EnemyAI : MonoBehaviour {
     public ForceMode2D forceMode;
 
     private bool pathIsEnded = false;
-    private bool facingRight = false;
+    private bool facingRight = true;
 
     private bool searchingForPlayer = false;
 
-    private Vector3 dir;
+	private Animator m_Anim;
+	
+
+	private Vector3 dir;
 
     // The max point from AI to a waypoint for it to continue to the next waypoint
     public float nextWayPointDistance = 3f;
@@ -33,8 +36,9 @@ public class EnemyAI : MonoBehaviour {
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+		m_Anim = GetComponent<Animator>();
 
-        if(target == null)
+		if (target == null)
         {
             if(!searchingForPlayer)
             {
@@ -148,8 +152,9 @@ public class EnemyAI : MonoBehaviour {
 
         float dist = (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]));
 
+		m_Anim.SetFloat("vSpeed", rb.velocity.y);
 
-        if(dist < nextWayPointDistance && dist < .5)
+		if (dist < nextWayPointDistance && dist < .5)
         {
             currentWaypoint++;
             return;
