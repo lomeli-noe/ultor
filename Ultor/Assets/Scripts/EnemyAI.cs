@@ -42,7 +42,8 @@ public class EnemyAI : MonoBehaviour {
 
 		if (target == null)
         {
-            if(!searchingForPlayer)
+			
+			if (!searchingForPlayer)
             {
                 searchingForPlayer = true;
                 StartCoroutine(SearchForPlayer());
@@ -106,7 +107,9 @@ public class EnemyAI : MonoBehaviour {
     {
         if(target == null)
         {
-            return;
+			m_Attack = false;
+			m_Anim.SetBool("Attack", m_Attack);
+			return;
         }
 
         if(path == null)
@@ -152,7 +155,7 @@ public class EnemyAI : MonoBehaviour {
 
         float dist = (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]));
 
-		if(Mathf.Abs(transform.position.x - target.position.x) < 4)
+		if(Mathf.Abs(transform.position.x - target.position.x) < 2.5)
 		{
 			m_Attack = true;
 			m_Anim.SetBool("Attack", m_Attack);
