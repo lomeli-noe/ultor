@@ -24,7 +24,8 @@ public class EnemyAI : MonoBehaviour {
 	private Animator m_Anim;
 
 	private bool m_Attack = false;
-	
+	private float nextTimeToAttack = 0f;
+
 
 	private Vector3 dir;
 
@@ -155,7 +156,7 @@ public class EnemyAI : MonoBehaviour {
 
         float dist = (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]));
 
-		if(Mathf.Abs(transform.position.x - target.position.x) < 2.5)
+		if (Mathf.Abs(transform.position.x - target.position.x) <= 2.3)
 		{
 			m_Attack = true;
 			m_Anim.SetBool("Attack", m_Attack);
@@ -168,7 +169,7 @@ public class EnemyAI : MonoBehaviour {
 
 		m_Anim.SetFloat("vSpeed", rb.velocity.y);
 
-		if (dist < nextWayPointDistance && dist < .5)
+		if (dist < nextWayPointDistance && dist < .2)
         {
             currentWaypoint++;
             return;
