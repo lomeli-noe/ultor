@@ -22,6 +22,8 @@ public class EnemyAI : MonoBehaviour {
     private bool searchingForPlayer = false;
 
 	private Animator m_Anim;
+
+	private bool m_Attack = false;
 	
 
 	private Vector3 dir;
@@ -128,8 +130,6 @@ public class EnemyAI : MonoBehaviour {
 
         dir *= speed * Time.fixedDeltaTime/5;
 
-        // Move the AI
-        //if(Mathf.Abs(transform.position.x - target.position.x) < 20)
         rb.AddForce(dir, forceMode);
 
         Vector3 localScale = transform.localScale;
@@ -151,6 +151,17 @@ public class EnemyAI : MonoBehaviour {
         transform.localScale = localScale;
 
         float dist = (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]));
+
+		if(Mathf.Abs(transform.position.x - target.position.x) < 4)
+		{
+			m_Attack = true;
+			m_Anim.SetBool("Attack", m_Attack);
+		}
+		else
+		{
+			m_Attack = false;
+			m_Anim.SetBool("Attack", m_Attack);
+		}
 
 		m_Anim.SetFloat("vSpeed", rb.velocity.y);
 

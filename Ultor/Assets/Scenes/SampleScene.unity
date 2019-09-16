@@ -1256,7 +1256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 67436079}
   updateRate: 2
-  speed: 2000
+  speed: 2300
   forceMode: 0
   nextWayPointDistance: 3
 --- !u!50 &1901742745
@@ -1272,7 +1272,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}

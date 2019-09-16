@@ -3,14 +3,14 @@
     <Files>
       <File FileName="Assets/Scripts/GameMaster.cs" Line="33" Column="45" />
       <File FileName="Assets/Scripts/Player.cs" Line="32" Column="1" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" Line="19" Column="34" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" Line="54" Column="30" />
       <File FileName="Assets/Scripts/Weapon.cs" Line="115" Column="39" />
       <File FileName="Assets/CameraShake.cs" Line="16" Column="6" />
       <File FileName="Assets/StatusIndicator.cs" Line="20" Column="66" />
       <File FileName="Assets/Scripts/Camera2DFollow.cs" Line="69" Column="17" />
       <File FileName="Assets/Standard Assets/2D/Scripts/Platformer2DUserControl.cs" Line="41" Column="24" />
       <File FileName="Assets/Enemy.cs" Line="28" Column="48" />
-      <File FileName="Assets/Scripts/EnemyAI.cs" Line="22" Column="45" NotebookId="1" />
+      <File FileName="Assets/Scripts/EnemyAI.cs" Line="155" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
