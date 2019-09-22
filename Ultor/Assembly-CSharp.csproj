@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CameraShake.cs" />
     <Compile Include="Assets\Enemy.cs" />
     <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Tiling.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
+    <Compile Include="Assets\StatusIndicator.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

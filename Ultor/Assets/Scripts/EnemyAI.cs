@@ -17,11 +17,17 @@ public class EnemyAI : MonoBehaviour {
     public ForceMode2D forceMode;
 
     private bool pathIsEnded = false;
-    private bool facingRight = false;
+    private bool facingRight = true;
 
     private bool searchingForPlayer = false;
 
-    private Vector3 dir;
+	private Animator m_Anim;
+
+	private bool m_Attack = false;
+	private float nextTimeToAttack = 0f;
+
+
+	private Vector3 dir;
 
     // The max point from AI to a waypoint for it to continue to the next waypoint
     public float nextWayPointDistance = 3f;
@@ -33,10 +39,12 @@ public class EnemyAI : MonoBehaviour {
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+		m_Anim = GetComponent<Animator>();
 
-        if(target == null)
+		if (target == null)
         {
-            if(!searchingForPlayer)
+			
+			if (!searchingForPlayer)
             {
                 searchingForPlayer = true;
                 StartCoroutine(SearchForPlayer());
@@ -100,7 +108,9 @@ public class EnemyAI : MonoBehaviour {
     {
         if(target == null)
         {
-            return;
+			m_Attack = false;
+			m_Anim.SetBool("Attack", m_Attack);
+			return;
         }
 
         if(path == null)
@@ -124,8 +134,6 @@ public class EnemyAI : MonoBehaviour {
 
         dir *= speed * Time.fixedDeltaTime/5;
 
-        // Move the AI
-        //if(Mathf.Abs(transform.position.x - target.position.x) < 20)
         rb.AddForce(dir, forceMode);
 
         Vector3 localScale = transform.localScale;
@@ -148,8 +156,20 @@ public class EnemyAI : MonoBehaviour {
 
         float dist = (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]));
 
+		if (Mathf.Abs(transform.position.x - target.position.x) <= 2.3)
+		{
+			m_Attack = true;
+			m_Anim.SetBool("Attack", m_Attack);
+		}
+		else
+		{
+			m_Attack = false;
+			m_Anim.SetBool("Attack", m_Attack);
+		}
 
-        if(dist < nextWayPointDistance && dist < .5)
+		m_Anim.SetFloat("vSpeed", rb.velocity.y);
+
+		if (dist < nextWayPointDistance && dist < .2)
         {
             currentWaypoint++;
             return;
