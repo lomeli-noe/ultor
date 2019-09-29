@@ -108,6 +108,18 @@
     <Reference Include="Unity.2D.IK.Runtime">
       <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="PsdPlugin">
+      <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Psdimporter.Editor">
+      <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect.Editor">
+      <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect">
+      <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
