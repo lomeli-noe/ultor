@@ -55,7 +55,7 @@ namespace UnityStandardAssets._2D
         }
 
 
-        public void Move(float move, bool crouch, bool jump, bool shoot)
+        public void Move(float move, bool crouch, bool jump, bool shoot, bool kick, bool punch)
         {
             // If crouching, check to see if the character can stand up
             if (!crouch && m_Anim.GetBool("Crouch"))
@@ -71,6 +71,10 @@ namespace UnityStandardAssets._2D
             m_Anim.SetBool("Crouch", crouch);
 
 			m_Anim.SetBool("Shoot", shoot);
+
+            m_Anim.SetBool("Kick", kick);
+
+            m_Anim.SetBool("Punch", punch);
 
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)

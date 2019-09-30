@@ -10,7 +10,8 @@ namespace UnityStandardAssets._2D
         private PlatformerCharacter2D m_Character;
         private bool m_Jump;
         private bool m_Shoot;
-
+        private bool m_Kick;
+        private bool m_Punch;
 
         private void Awake()
         {
@@ -35,12 +36,22 @@ namespace UnityStandardAssets._2D
         private void FixedUpdate()
         {
             // Read the inputs.
+            m_Kick = Input.GetKeyDown(KeyCode.F);
+            m_Punch = Input.GetKeyDown(KeyCode.G);
+
             bool crouch = Input.GetKey(KeyCode.LeftControl);
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             // Pass all parameters to the character control script.
-            m_Character.Move(h, crouch, m_Jump, m_Shoot);
+            m_Character.Move(h,
+                             crouch,
+                             m_Jump,
+                             m_Shoot,
+                             m_Kick,
+                             m_Punch);
             m_Jump = false;
             m_Shoot = false;
+            m_Kick = false;
+            m_Punch = false;
         }
     }
 }
