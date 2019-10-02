@@ -21,6 +21,11 @@ namespace UnityStandardAssets._2D
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
         Transform playerGraphics;
 
+        private float attackTimer = 0;
+        private float attackCd = .3f;
+
+        public Collider2D attackTrigger;
+
         private void Awake()
         {
             // Setting up references.
@@ -33,6 +38,8 @@ namespace UnityStandardAssets._2D
             {
                 Debug.LogError("No Graphics object as a child of player");
             }
+
+            attackTrigger.enabled = false;
         }
 
 
@@ -75,6 +82,9 @@ namespace UnityStandardAssets._2D
             m_Anim.SetBool("Kick", kick);
 
             m_Anim.SetBool("Punch", punch);
+
+            attackTrigger.enabled = punch;
+            attackTrigger.enabled = kick;
 
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
