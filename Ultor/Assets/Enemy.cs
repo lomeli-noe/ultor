@@ -26,9 +26,13 @@ public class Enemy : MonoBehaviour
     }
 
     public EnemyStats stats = new EnemyStats();
+    public float knockBack;
+    public bool hitFromLeft;
+    private Rigidbody2D rb;
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         stats.Init();
     }
 
@@ -38,6 +42,24 @@ public class Enemy : MonoBehaviour
         if (stats.curHealth <= 0)
         {
             GameMaster.KillEnemy(this);
+        }
+    }
+
+    public void PunchEnemy(bool hitFromLeft)
+    {
+        stats.curHealth -= 30;
+        if (stats.curHealth <= 0)
+        {
+            GameMaster.KillEnemy(this);
+        }
+
+        if (hitFromLeft)
+        {
+            rb.velocity = new Vector2(knockBack, knockBack);
+        }
+        else
+        {
+            rb.velocity = new Vector2(-knockBack, knockBack);
         }
     }
 

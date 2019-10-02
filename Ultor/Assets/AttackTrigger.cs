@@ -1,16 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AttackTrigger : MonoBehaviour
 {
     public int damage = 20;
+    bool hitFromLeft;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.isTrigger != true && collision.CompareTag("Enemy"))
+        hitFromLeft = transform.position.x < collision.transform.position.x ? true : false;
+
+        if (collision.isTrigger != true && collision.CompareTag("Enemy"))
         {
-            collision.SendMessageUpwards("DamageEnemy", damage);
+            collision.SendMessageUpwards("PunchEnemy", hitFromLeft);
         }
     }
 }

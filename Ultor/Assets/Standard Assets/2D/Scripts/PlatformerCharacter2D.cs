@@ -23,6 +23,7 @@ namespace UnityStandardAssets._2D
 
         private float attackTimer = 0;
         private float attackCd = .3f;
+        private bool attacking = false;
 
         public Collider2D attackTrigger;
 
@@ -83,8 +84,26 @@ namespace UnityStandardAssets._2D
 
             m_Anim.SetBool("Punch", punch);
 
-            attackTrigger.enabled = punch;
-            attackTrigger.enabled = kick;
+            if (punch || kick)
+            {
+                attacking = true;
+                attackTimer = attackCd;
+                attackTrigger.enabled = true;
+            }
+            if (attacking)
+            {
+                if(attackTimer > 0)
+                {
+                    attackTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    attacking = false;
+                    attackTrigger.enabled = false;
+                }
+            }
+            
+            
 
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
