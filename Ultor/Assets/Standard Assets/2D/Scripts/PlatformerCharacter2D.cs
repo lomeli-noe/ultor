@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
 namespace UnityStandardAssets._2D
@@ -62,8 +62,40 @@ namespace UnityStandardAssets._2D
             m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
         }
 
+        public void Punch()
+        {
+            m_Anim.SetBool("Punch", true);
+            attackTrigger.enabled = true;
+            
+            StartCoroutine(DisablePunch());
 
-        public void Move(float move, bool crouch, bool jump, bool shoot, bool kick, bool punch)
+        }
+
+        IEnumerator DisablePunch()
+        {
+            yield return new WaitForSeconds(.05f);
+            attackTrigger.enabled = false;
+            m_Anim.SetBool("Punch", false);
+        }
+
+        public void Kick()
+        {
+            m_Anim.SetBool("Kick", true);
+            attackTrigger.enabled = true;
+
+            StartCoroutine(DisableKick());
+
+        }
+
+        IEnumerator DisableKick()
+        {
+            yield return new WaitForSeconds(.05f);
+            attackTrigger.enabled = false;
+            m_Anim.SetBool("Kick", false);
+        }
+
+
+        public void Move(float move, bool crouch, bool jump)
         {
             // If crouching, check to see if the character can stand up
             if (!crouch && m_Anim.GetBool("Crouch"))
@@ -78,32 +110,6 @@ namespace UnityStandardAssets._2D
             // Set whether or not the character is crouching in the animator
             m_Anim.SetBool("Crouch", crouch);
 
-			m_Anim.SetBool("Shoot", shoot);
-
-            m_Anim.SetBool("Kick", kick);
-
-            m_Anim.SetBool("Punch", punch);
-
-            if (punch || kick)
-            {
-                attacking = true;
-                attackTimer = attackCd;
-                attackTrigger.enabled = true;
-            }
-            if (attacking)
-            {
-                if(attackTimer > 0)
-                {
-                    attackTimer -= Time.deltaTime;
-                }
-                else
-                {
-                    attacking = false;
-                    attackTrigger.enabled = false;
-                }
-            }
-            
-            
 
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)

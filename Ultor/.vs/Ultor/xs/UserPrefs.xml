@@ -1,15 +1,15 @@
 ﻿<Properties StartupConfiguration="{D84C30B8-797C-CAD1-BCCA-C91F06773295}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/2D/Scripts/Platformer2DUserControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Weapon.cs">
     <Files>
       <File FileName="Assets/Scripts/GameMaster.cs" Line="65" Column="1" />
-      <File FileName="Assets/Scripts/Player.cs" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" />
-      <File FileName="Assets/Scripts/Weapon.cs" />
+      <File FileName="Assets/Scripts/Player.cs" Line="77" Column="1" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" Line="70" Column="13" />
       <File FileName="Assets/StatusIndicator.cs" />
-      <File FileName="Assets/Scripts/Camera2DFollow.cs" />
+      <File FileName="Assets/Scripts/Camera2DFollow.cs" Line="25" Column="1" />
       <File FileName="Assets/Enemy.cs" />
       <File FileName="Assets/Scripts/EnemyAI.cs" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/Platformer2DUserControl.cs" Line="46" Column="37" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/Platformer2DUserControl.cs" Line="72" Column="10" />
+      <File FileName="Assets/Scripts/Weapon.cs" Line="119" Column="2" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

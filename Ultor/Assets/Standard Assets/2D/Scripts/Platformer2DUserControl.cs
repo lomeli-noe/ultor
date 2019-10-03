@@ -9,9 +9,7 @@ namespace UnityStandardAssets._2D
     {
         private PlatformerCharacter2D m_Character;
 		private bool m_Jump;
-        private bool m_Shoot;
-        private bool m_Kick;
-        private bool m_Punch;
+
 
         public Joystick joystick;
         float horizontalMove = 0f;
@@ -28,13 +26,6 @@ namespace UnityStandardAssets._2D
 
         private void Update()
         {
-            if (!m_Shoot)
-            {
-                m_Shoot = CrossPlatformInputManager.GetButtonDown("Fire1");
-            }
-            // Read the inputs.
-            m_Kick = Input.GetKeyDown(KeyCode.F);
-            m_Punch = Input.GetKeyDown(KeyCode.G);
 
             bool crouch = Input.GetKey(KeyCode.LeftControl);
 			horizontalMove = joystick.Horizontal;
@@ -62,14 +53,11 @@ namespace UnityStandardAssets._2D
 			// Pass all parameters to the character control script.
 			m_Character.Move(horizontalMove,
                              crouch,
-                             m_Jump,
-                             m_Shoot,
-                             m_Kick,
-                             m_Punch);
+                             m_Jump
+                             
+                             );
             m_Jump = false;
-            m_Shoot = false;
-            m_Kick = false;
-            m_Punch = false;
+            
         }
     }
 }

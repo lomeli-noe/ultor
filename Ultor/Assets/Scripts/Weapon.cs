@@ -35,24 +35,24 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(fireRate == 0)
-        {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                Shoot();
-            }         
-        }
-        else
-        {
-            if (Input.GetButton("Fire1") && Time.time > timeToFire)
-            {
-                timeToFire = Time.time + 1 / fireRate;
-                Shoot();
-            }
-        }
-    }
+    //private void Update()
+    //{
+    //    if(fireRate == 0)
+    //    {
+    //        if (Input.GetButtonDown("Fire1"))
+    //        {
+    //            Shoot();
+    //        }         
+    //    }
+    //    else
+    //    {
+    //        if (Input.GetButton("Fire1") && Time.time > timeToFire)
+    //        {
+    //            timeToFire = Time.time + 1 / fireRate;
+    //            Shoot();
+    //        }
+    //    }
+    //}
 
     void Shoot()
     {
