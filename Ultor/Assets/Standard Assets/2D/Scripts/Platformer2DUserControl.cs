@@ -8,10 +8,17 @@ namespace UnityStandardAssets._2D
     public class Platformer2DUserControl : MonoBehaviour
     {
         private PlatformerCharacter2D m_Character;
-        private bool m_Jump;
+		private bool m_Jump;
         private bool m_Shoot;
         private bool m_Kick;
         private bool m_Punch;
+
+        public Joystick joystick;
+        float horizontalMove = 0f;
+		float verticalMove = 0f;
+        
+		public float runSpeed = 1.2f;
+		public float jumpSpeed = .5f;
 
         private void Awake()
         {
@@ -21,28 +28,39 @@ namespace UnityStandardAssets._2D
 
         private void Update()
         {
-            if (!m_Jump)
-            {
-                // Read the jump input in Update so button presses aren't missed.
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-            }
             if (!m_Shoot)
             {
                 m_Shoot = CrossPlatformInputManager.GetButtonDown("Fire1");
             }
-        }
-
-
-        private void FixedUpdate()
-        {
             // Read the inputs.
             m_Kick = Input.GetKeyDown(KeyCode.F);
             m_Punch = Input.GetKeyDown(KeyCode.G);
 
             bool crouch = Input.GetKey(KeyCode.LeftControl);
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            // Pass all parameters to the character control script.
-            m_Character.Move(h,
+			horizontalMove = joystick.Horizontal;
+			verticalMove = joystick.Vertical;
+
+			if (joystick.Horizontal >= .2f)
+			{
+				horizontalMove = runSpeed;
+			}
+            else if(joystick.Horizontal <= -.2f)
+			{
+				horizontalMove = -runSpeed;
+			}
+			else
+			{
+				horizontalMove = 0f;
+			}
+
+            if(joystick.Vertical >= .5f)
+			{
+				m_Jump = true;
+				verticalMove = jumpSpeed;
+			}
+
+			// Pass all parameters to the character control script.
+			m_Character.Move(horizontalMove,
                              crouch,
                              m_Jump,
                              m_Shoot,

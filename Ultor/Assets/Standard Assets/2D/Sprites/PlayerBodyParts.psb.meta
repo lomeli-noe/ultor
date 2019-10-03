@@ -1,64 +1,177 @@
 fileFormatVersion: 2
 guid: 477937b96cf984857968b56f37631a84
 ScriptedImporter:
-  fileIDToRecycleName:
-    100000: PlayerBodyParts_GO/PlayerBodyParts_GO
-    100002: PlayerBodyParts_GO/PlayerBodyParts_GO/Head
-    100004: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftArm
-    100006: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftLeg
-    100008: PlayerBodyParts_GO/PlayerBodyParts_GO/RightArm
-    100010: PlayerBodyParts_GO/PlayerBodyParts_GO/RightLeg
-    100012: PlayerBodyParts_GO/PlayerBodyParts_GO/Torso
-    100014: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1
-    100016: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2
-    100018: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_3
-    100020: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_4
-    100022: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_4/bone_5
-    100024: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_6
-    100026: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_6/bone_7
-    100028: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_8
-    100030: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_8/bone_9
-    100032: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_10
-    100034: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_10/bone_11
-    400000: PlayerBodyParts_GO/PlayerBodyParts_GO/Transform
-    400002: PlayerBodyParts_GO/PlayerBodyParts_GO/Head/Transform
-    400004: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftArm/Transform
-    400006: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftLeg/Transform
-    400008: PlayerBodyParts_GO/PlayerBodyParts_GO/RightArm/Transform
-    400010: PlayerBodyParts_GO/PlayerBodyParts_GO/RightLeg/Transform
-    400012: PlayerBodyParts_GO/PlayerBodyParts_GO/Torso/Transform
-    400014: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/Transform
-    400016: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/Transform
-    400018: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_3/Transform
-    400020: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_4/Transform
-    400022: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_4/bone_5/Transform
-    400024: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_6/Transform
-    400026: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_6/bone_7/Transform
-    400028: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_8/Transform
-    400030: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_8/bone_9/Transform
-    400032: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_10/Transform
-    400034: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_10/bone_11/Transform
-    2800000: PlayerBodyParts
-    11400000: PlayerBodyParts_GO/PlayerBodyParts_GO/Head/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400002: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftArm/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400004: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftLeg/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400006: PlayerBodyParts_GO/PlayerBodyParts_GO/RightArm/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400008: PlayerBodyParts_GO/PlayerBodyParts_GO/RightLeg/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400010: PlayerBodyParts_GO/PlayerBodyParts_GO/Torso/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    21200000: PlayerBodyParts_GO/PlayerBodyParts_GO/Head/SpriteRenderer
-    21200002: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftArm/SpriteRenderer
-    21200004: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftLeg/SpriteRenderer
-    21200006: PlayerBodyParts_GO/PlayerBodyParts_GO/RightArm/SpriteRenderer
-    21200008: PlayerBodyParts_GO/PlayerBodyParts_GO/RightLeg/SpriteRenderer
-    21200010: PlayerBodyParts_GO/PlayerBodyParts_GO/Torso/SpriteRenderer
-    21300000: dfc27e7bdc0674718a391ea1f0ab4847
-    21300002: b5195939135e64718b2da61a4410657a
-    21300004: a5af010f3e89c410b8b0fd28f8225ab0
-    21300006: e51af24deaa5b42bb9ff99b4f14fcc60
-    21300008: 8204207874d8648b695872f07fdd3f57
-    21300010: 87916f4cad32f4c679b493c6dfbaebd2
-    100100000: PlayerBodyParts_GO
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO
+  - first:
+      1: 100002
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/Head
+  - first:
+      1: 100004
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftArm
+  - first:
+      1: 100006
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftLeg
+  - first:
+      1: 100008
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/RightArm
+  - first:
+      1: 100010
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/RightLeg
+  - first:
+      1: 100012
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/Torso
+  - first:
+      1: 100014
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1
+  - first:
+      1: 100016
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2
+  - first:
+      1: 100018
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_3
+  - first:
+      1: 100020
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_4
+  - first:
+      1: 100022
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_4/bone_5
+  - first:
+      1: 100024
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_6
+  - first:
+      1: 100026
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_6/bone_7
+  - first:
+      1: 100028
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_8
+  - first:
+      1: 100030
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_8/bone_9
+  - first:
+      1: 100032
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_10
+  - first:
+      1: 100034
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_10/bone_11
+  - first:
+      4: 400000
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/Transform
+  - first:
+      4: 400002
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/Head/Transform
+  - first:
+      4: 400004
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftArm/Transform
+  - first:
+      4: 400006
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftLeg/Transform
+  - first:
+      4: 400008
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/RightArm/Transform
+  - first:
+      4: 400010
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/RightLeg/Transform
+  - first:
+      4: 400012
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/Torso/Transform
+  - first:
+      4: 400014
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/Transform
+  - first:
+      4: 400016
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/Transform
+  - first:
+      4: 400018
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_3/Transform
+  - first:
+      4: 400020
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_4/Transform
+  - first:
+      4: 400022
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_4/bone_5/Transform
+  - first:
+      4: 400024
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_6/Transform
+  - first:
+      4: 400026
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_2/bone_6/bone_7/Transform
+  - first:
+      4: 400028
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_8/Transform
+  - first:
+      4: 400030
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_8/bone_9/Transform
+  - first:
+      4: 400032
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_10/Transform
+  - first:
+      4: 400034
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/bone_1/bone_10/bone_11/Transform
+  - first:
+      28: 2800000
+    second: PlayerBodyParts
+  - first:
+      114: 11400000
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/Head/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400002
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftArm/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400004
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftLeg/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400006
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/RightArm/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400008
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/RightLeg/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400010
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/Torso/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      212: 21200000
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/Head/SpriteRenderer
+  - first:
+      212: 21200002
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftArm/SpriteRenderer
+  - first:
+      212: 21200004
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/LeftLeg/SpriteRenderer
+  - first:
+      212: 21200006
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/RightArm/SpriteRenderer
+  - first:
+      212: 21200008
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/RightLeg/SpriteRenderer
+  - first:
+      212: 21200010
+    second: PlayerBodyParts_GO/PlayerBodyParts_GO/Torso/SpriteRenderer
+  - first:
+      213: 21300000
+    second: dfc27e7bdc0674718a391ea1f0ab4847
+  - first:
+      213: 21300002
+    second: b5195939135e64718b2da61a4410657a
+  - first:
+      213: 21300004
+    second: a5af010f3e89c410b8b0fd28f8225ab0
+  - first:
+      213: 21300006
+    second: e51af24deaa5b42bb9ff99b4f14fcc60
+  - first:
+      213: 21300008
+    second: 8204207874d8648b695872f07fdd3f57
+  - first:
+      213: 21300010
+    second: 87916f4cad32f4c679b493c6dfbaebd2
+  - first:
+      1001: 100100000
+    second: PlayerBodyParts_GO
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -129,6 +242,7 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 
+    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,6 +266,7 @@ ScriptedImporter:
       width: 63
       height: 100
     spriteID: dfc27e7bdc0674718a391ea1f0ab4847
+    internalID: 0
     spriteBone:
     - name: bone_7
       position: {x: 30.283405, y: 0.0000036201732, z: 0}
@@ -558,6 +673,7 @@ ScriptedImporter:
       width: 168
       height: 172
     spriteID: b5195939135e64718b2da61a4410657a
+    internalID: 0
     spriteBone:
     - name: bone_3
       position: {x: 100.86433, y: -0.8185272, z: 0}
@@ -901,6 +1017,7 @@ ScriptedImporter:
       width: 56
       height: 75
     spriteID: a5af010f3e89c410b8b0fd28f8225ab0
+    internalID: 0
     spriteBone:
     - name: bone_11
       position: {x: 23.807388, y: 0.00000867694, z: 0}
@@ -1321,6 +1438,7 @@ ScriptedImporter:
       width: 86
       height: 104
     spriteID: e51af24deaa5b42bb9ff99b4f14fcc60
+    internalID: 0
     spriteBone:
     - name: bone_1
       position: {x: 60.032837, y: 6.2986603, z: 0}
@@ -1679,6 +1797,7 @@ ScriptedImporter:
       width: 64
       height: 76
     spriteID: 8204207874d8648b695872f07fdd3f57
+    internalID: 0
     spriteBone:
     - name: bone_9
       position: {x: 23.271322, y: -0.000025006331, z: 0}
@@ -2057,6 +2176,7 @@ ScriptedImporter:
       width: 61
       height: 97
     spriteID: 87916f4cad32f4c679b493c6dfbaebd2
+    internalID: 0
     spriteBone:
     - name: bone_5
       position: {x: 29.163227, y: 0.00001649332, z: 0}
@@ -2420,6 +2540,10 @@ ScriptedImporter:
   importedTextureWidth: 256
   importedTextureHeight: 512
   documentSize: {x: 250, y: 334}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
   textureActualWidth: 256
   textureActualHeight: 512
   spritePackingTag: 
@@ -2534,6 +2658,8 @@ ScriptedImporter:
         height: 100
       spriteId: dfc27e7bdc0674718a391ea1f0ab4847
       bones: 0600000005000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 20
         y: 151
@@ -2541,6 +2667,8 @@ ScriptedImporter:
         height: 172
       spriteId: b5195939135e64718b2da61a4410657a
       bones: 02000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 83
         y: 4
@@ -2548,6 +2676,8 @@ ScriptedImporter:
         height: 75
       spriteId: a5af010f3e89c410b8b0fd28f8225ab0
       bones: 0a00000009000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 68
         y: 54
@@ -2555,6 +2685,8 @@ ScriptedImporter:
         height: 104
       spriteId: e51af24deaa5b42bb9ff99b4f14fcc60
       bones: 0000000001000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 128
         y: 5
@@ -2562,6 +2694,8 @@ ScriptedImporter:
         height: 76
       spriteId: 8204207874d8648b695872f07fdd3f57
       bones: 0800000007000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 136
         y: 60
@@ -2569,7 +2703,10 @@ ScriptedImporter:
         height: 97
       spriteId: 87916f4cad32f4c679b493c6dfbaebd2
       bones: 0400000003000000
+      parentGroup: 0
+      order: 0
     dimension: {x: 0, y: 0}
+    characterGroups: []
   boneGOs:
   - go: {fileID: 100014, guid: 477937b96cf984857968b56f37631a84, type: 3}
     index: 0
@@ -2596,3 +2733,4 @@ ScriptedImporter:
   generateGOHierarchy: 0
   textureAssetName: PlayerBodyParts
   prefabAssetName: PlayerBodyParts_GO
+  spriteLibAssetName: PlayerBodyParts Sprite Lib
