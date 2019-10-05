@@ -27,7 +27,6 @@ public class Enemy : MonoBehaviour
 
     public EnemyStats stats = new EnemyStats();
     public float knockBack;
-    public bool hitFromLeft;
     private Rigidbody2D rb;
 
     private void Start()

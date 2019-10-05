@@ -139,10 +139,10 @@ public class EnemyAI : MonoBehaviour {
         Vector3 localScale = transform.localScale;
         if (rb.velocity.x > 0)
         {
-            facingRight = true;
+            facingRight = false;
         }
         else
-            facingRight = false;
+            facingRight = true;
 
         // check to see if scale x is right for the player
         // if not, multiple by -1 which is an easy way to flip a sprite
