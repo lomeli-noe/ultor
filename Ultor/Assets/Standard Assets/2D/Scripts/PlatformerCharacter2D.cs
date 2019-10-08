@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
 namespace UnityStandardAssets._2D
@@ -21,6 +21,12 @@ namespace UnityStandardAssets._2D
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
         Transform playerGraphics;
 
+        private float attackTimer = 0;
+        private float attackCd = .3f;
+        private bool attacking = false;
+
+        public Collider2D attackTrigger;
+
         private void Awake()
         {
             // Setting up references.
@@ -28,11 +34,13 @@ namespace UnityStandardAssets._2D
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
-            playerGraphics = transform.Find("Graphics");
+            playerGraphics = transform.Find("PlayerBodyParts").Find("Graphics");
             if (playerGraphics == null)
             {
                 Debug.LogError("No Graphics object as a child of player");
             }
+
+            attackTrigger.enabled = false;
         }
 
 
@@ -54,8 +62,40 @@ namespace UnityStandardAssets._2D
             m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
         }
 
+        public void Punch()
+        {
+            m_Anim.SetBool("Punch", true);
+            attackTrigger.enabled = true;
+            
+            StartCoroutine(DisablePunch());
 
-        public void Move(float move, bool crouch, bool jump, bool shoot)
+        }
+
+        IEnumerator DisablePunch()
+        {
+            yield return new WaitForSeconds(.05f);
+            attackTrigger.enabled = false;
+            m_Anim.SetBool("Punch", false);
+        }
+
+        public void Kick()
+        {
+            m_Anim.SetBool("Kick", true);
+            attackTrigger.enabled = true;
+
+            StartCoroutine(DisableKick());
+
+        }
+
+        IEnumerator DisableKick()
+        {
+            yield return new WaitForSeconds(.05f);
+            attackTrigger.enabled = false;
+            m_Anim.SetBool("Kick", false);
+        }
+
+
+        public void Move(float move, bool crouch, bool jump)
         {
             // If crouching, check to see if the character can stand up
             if (!crouch && m_Anim.GetBool("Crouch"))
@@ -70,7 +110,6 @@ namespace UnityStandardAssets._2D
             // Set whether or not the character is crouching in the animator
             m_Anim.SetBool("Crouch", crouch);
 
-			m_Anim.SetBool("Shoot", shoot);
 
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)

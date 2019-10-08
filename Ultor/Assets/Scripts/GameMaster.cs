@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameMaster : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class GameMaster : MonoBehaviour
 			gm = this;
 			Debug.Log("Awake GM");
 		}
+
+        // Setting up the reference.
+        m_Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Start()
@@ -21,12 +25,22 @@ public class GameMaster : MonoBehaviour
 		canSpawn = true;
 	}
 
+    private void Update()
+    {
+        if(Math.Abs(Mathf.Abs(m_Player.position.x - enemySpawnPoint.position.x)) <= 0.5)
+            Debug.Log("Touching!!!!" );
+    }
+
     public Transform playerPrefab;
+    private Transform m_Player; // Reference to the player's transform.
     public Transform spawnPoint;
+    public Transform enemyPrefab;
+    public Transform enemySpawnPoint;
     public float spawnDelay = 2;
     public Transform spawnPrefab;
     public AudioClip respawnAudio;
 
+   
     public IEnumerator RespawnPlayer()
     {
 		canSpawn = false;
