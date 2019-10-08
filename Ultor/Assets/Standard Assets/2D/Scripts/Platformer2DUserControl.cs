@@ -11,17 +11,23 @@ namespace UnityStandardAssets._2D
 		private bool m_Jump;
 
 
-        public Joystick joystick;
+        protected Joystick joystick;
         float horizontalMove = 0f;
 		float verticalMove = 0f;
         
 		public float runSpeed = 1.2f;
 		public float jumpSpeed = .5f;
 
-        private void Awake()
+
+        void Start()
+		{
+			joystick = FindObjectOfType<Joystick>();
+		}
+
+		private void Awake()
         {
             m_Character = GetComponent<PlatformerCharacter2D>();
-        }
+		}
 
 
         private void Update()

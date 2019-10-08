@@ -20,7 +20,30 @@ ScriptsOnlyBuild:
     - AstarPath
     - Pathfinding.Seeker
     Unity.2D.Animation.Editor.dll:
+    - UnityEditor.Experimental.U2D.Animation.BoneCache
     - UnityEditor.Experimental.U2D.Animation.BoneGizmo
+    - UnityEditor.Experimental.U2D.Animation.BoneReparentTool
+    - UnityEditor.Experimental.U2D.Animation.CharacterCache
+    - UnityEditor.Experimental.U2D.Animation.CharacterPartCache
+    - UnityEditor.Experimental.U2D.Animation.CopyTool
+    - UnityEditor.Experimental.U2D.Animation.GenerateGeometryTool
+    - UnityEditor.Experimental.U2D.Animation.GenerateWeightsTool
+    - UnityEditor.Experimental.U2D.Animation.MeshCache
+    - UnityEditor.Experimental.U2D.Animation.MeshPreviewCache
+    - UnityEditor.Experimental.U2D.Animation.MeshPreviewTool
+    - UnityEditor.Experimental.U2D.Animation.MeshTool
+    - UnityEditor.Experimental.U2D.Animation.MeshToolWrapper
+    - UnityEditor.Experimental.U2D.Animation.SelectionTool
+    - UnityEditor.Experimental.U2D.Animation.SkeletonCache
+    - UnityEditor.Experimental.U2D.Animation.SkeletonTool
+    - UnityEditor.Experimental.U2D.Animation.SkeletonToolWrapper
+    - UnityEditor.Experimental.U2D.Animation.SkinningCache
+    - UnityEditor.Experimental.U2D.Animation.SpriteBoneInfluenceTool
+    - UnityEditor.Experimental.U2D.Animation.SpriteCache
+    - UnityEditor.Experimental.U2D.Animation.SwitchModeTool
+    - UnityEditor.Experimental.U2D.Animation.VisibilityTool
+    - UnityEditor.Experimental.U2D.Animation.WeightPainterTool
+    - UnityEditor.Experimental.U2D.Animation.WeightPainterToolWrapper
     Unity.2D.Animation.Runtime.dll:
     - UnityEngine.Experimental.U2D.Animation.SpriteSkin
     Unity.2D.IK.Editor.dll:
@@ -30,6 +53,8 @@ ScriptsOnlyBuild:
     - UnityEditor.Experimental.U2D.IK.IKEditorManagerHelper
     - UnityEngine.Experimental.U2D.IK.IKManager2D
     - UnityEngine.Experimental.U2D.IK.LimbSolver2D
+    Unity.2D.Sprite.Editor.dll:
+    - UnityEditor.U2D.Sprites.SpriteEditorWindow
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -39,8 +64,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -247,7 +274,7 @@ ScriptsOnlyBuild:
     className: ObjectPlacer
   - hash:
       serializedVersion: 2
-      Hash: dc7b6c273ee72d3c249edd0b483e96b0
+      Hash: 754658690456f9bb91899a9b4d56f415
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameMaster
@@ -835,7 +862,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: a81c951584cbb095027835372acbe1e7
+      Hash: 67766b89466d187acbd43612051aad93
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy
@@ -1021,7 +1048,7 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: a997ca82fa5f5b5b62f6a3d9fa6069be
+      Hash: 7e32416b69e54faca8b5b3bb61b7fb42
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets._2D
     className: Platformer2DUserControl
