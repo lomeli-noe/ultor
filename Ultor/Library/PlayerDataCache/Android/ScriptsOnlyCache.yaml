@@ -23,8 +23,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Experimental.U2D.Animation.BoneCache
     - UnityEditor.Experimental.U2D.Animation.BoneGizmo
     - UnityEditor.Experimental.U2D.Animation.BoneReparentTool
-    - UnityEditor.Experimental.U2D.Animation.CharacterCache
-    - UnityEditor.Experimental.U2D.Animation.CharacterPartCache
     - UnityEditor.Experimental.U2D.Animation.CopyTool
     - UnityEditor.Experimental.U2D.Animation.GenerateGeometryTool
     - UnityEditor.Experimental.U2D.Animation.GenerateWeightsTool
@@ -466,7 +464,7 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 4fe36b3fbebf9749e8970b26f9fd8e0f
+      Hash: 697beb16d87251227b39de32e68f8fb1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Parallaxing

@@ -27,8 +27,11 @@ public class GameMaster : MonoBehaviour
 
     private void Update()
     {
-        if(Math.Abs(Mathf.Abs(m_Player.position.x - enemySpawnPoint.position.x)) <= 0.5)
-            Debug.Log("Touching!!!!" );
+		if (m_Player != null)
+		{
+			if (Math.Abs(Mathf.Abs(m_Player.position.x - enemySpawnPoint.position.x)) <= 0.5)
+				Debug.Log("Touching!!!!");
+		}
     }
 
     public Transform playerPrefab;
