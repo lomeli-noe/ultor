@@ -6,7 +6,20 @@ using System;
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster gm;
+
+	private static int _remainingLives = 3; 
+    public static int RemainingLives
+	{
+        get { return _remainingLives; }
+	}
+
 	private bool canSpawn;
+	public Transform playerPrefab;
+	public Transform spawnPoint;
+	public Transform enemyPrefab;
+	public float spawnDelay = 2;
+	public Transform spawnPrefab;
+	public AudioClip respawnAudio;
 
 	private void Awake()
     {
@@ -15,9 +28,6 @@ public class GameMaster : MonoBehaviour
 			gm = this;
 			Debug.Log("Awake GM");
 		}
-
-        // Setting up the reference.
-        m_Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Start()
@@ -25,26 +35,12 @@ public class GameMaster : MonoBehaviour
 		canSpawn = true;
 	}
 
-    private void Update()
-    {
-		if (m_Player != null)
-		{
-			if (Math.Abs(Mathf.Abs(m_Player.position.x - enemySpawnPoint.position.x)) <= 0.5)
-				Debug.Log("Touching!!!!");
-		}
-    }
+    public void EndGame()
+	{
+		Debug.Log("GAME OVER!!!");
+	}
 
-    public Transform playerPrefab;
-    private Transform m_Player; // Reference to the player's transform.
-    public Transform spawnPoint;
-    public Transform enemyPrefab;
-    public Transform enemySpawnPoint;
-    public float spawnDelay = 2;
-    public Transform spawnPrefab;
-    public AudioClip respawnAudio;
-
-   
-    public IEnumerator RespawnPlayer()
+     public IEnumerator RespawnPlayer()
     {
 		canSpawn = false;
 		yield return new WaitForSeconds(spawnDelay);
@@ -71,6 +67,16 @@ public class GameMaster : MonoBehaviour
     public void _KillPlayer(Player player)
 	{
 		Destroy(player.gameObject);
+		_remainingLives -= 1;
+
+        if(_remainingLives <= 0)
+		{
+			gm.EndGame();
+		}
+		else
+		{
+
+		}
 		gm.StartCoroutine(gm.RespawnPlayer());  
 	}
 

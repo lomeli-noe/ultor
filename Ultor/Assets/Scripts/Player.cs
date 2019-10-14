@@ -1,74 +1,46 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System;
 
 public class Player : MonoBehaviour
 {
-    [System.Serializable]
-    public class PlayerStats
-    {
-        public int maxHealth = 100;
 
-		private int _curHealth;
+    public Transform enemySpawnPoint;
+	public float manaValue;
+	public float healthValue;
 
-        public int curHealth
-		{
-			get { return _curHealth; }
-			set { _curHealth = Mathf.Clamp(value, 0, maxHealth); }
-		}
+    [SerializeField]
+	private Stats health;
 
-        public void Init()
-		{
-			curHealth = maxHealth;
-		}
-    }
-
-    public PlayerStats stats = new PlayerStats();
+	[SerializeField]
+	private Stats mana;
 
     public int fallBoundary = -20;
 
-    [Header("Optional: ")]
-	[SerializeField]
-	private StatusIndicator statusIndicator;
-
-    void Start()
+	private void Start()
 	{
-		stats.Init();
-
-        if(statusIndicator != null)
-		{
-			statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
-		}
+		mana.MyCurrentValue = 0;
 	}
 
     private void Update()
     {
-        if(transform.position.y <= fallBoundary)
+        if (transform.position.y <= fallBoundary)
         {
             DamagePlayer(99999);
         }
 
-		if (statusIndicator == null)
-		{
-			statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
-		}
+		mana.MyCurrentValue += manaValue;
+		health.MyCurrentValue += healthValue;
 	}
 
 
 
     public void DamagePlayer(int damage)
     {
-        stats.curHealth -= damage;
-		Debug.Log("curhealth: " + stats.curHealth);
-        if(stats.curHealth <= 0)
+		health.MyCurrentValue -= damage;
+        if(health.MyCurrentValue <= 0)
         {
             GameMaster.KillPlayer(this);
 		}
-
-		if (statusIndicator != null)
-		{
-			statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
-		} 
 
 	}
     
