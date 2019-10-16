@@ -20,6 +20,9 @@ namespace UnityStandardAssets._2D
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
         Transform playerGraphics;
+        Transform firePoint;
+        public Transform PunchEffectPrefab;
+
 
         private float attackTimer = 0;
         private float attackCd = .3f;
@@ -30,6 +33,7 @@ namespace UnityStandardAssets._2D
         private void Awake()
         {
             // Setting up references.
+            firePoint = transform.Find("FirePoint");
             m_GroundCheck = transform.Find("GroundCheck");
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Anim = GetComponent<Animator>();
@@ -68,7 +72,18 @@ namespace UnityStandardAssets._2D
             attackTrigger.enabled = true;
             
             StartCoroutine(DisablePunch());
+            StartCoroutine(PunchEffect());
 
+        }
+
+        IEnumerator PunchEffect()
+        {
+            yield return new WaitForSeconds(.07f);
+            Transform clone = Instantiate(PunchEffectPrefab, firePoint.position, firePoint.rotation) as Transform;
+            clone.parent = firePoint;
+            float size = Random.Range(0.9f, 1.2f);
+            clone.localScale = new Vector3(-size, size, size);
+            Destroy(clone.gameObject, 0.2f);
         }
 
         IEnumerator DisablePunch()
@@ -84,7 +99,7 @@ namespace UnityStandardAssets._2D
             attackTrigger.enabled = true;
 
             StartCoroutine(DisableKick());
-
+            StartCoroutine(PunchEffect());
         }
 
         IEnumerator DisableKick()

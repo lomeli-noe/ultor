@@ -7,7 +7,7 @@ public class GameMaster : MonoBehaviour
 {
     public static GameMaster gm;
 
-	private static int _remainingLives = 3; 
+	private static int _remainingLives; 
     public static int RemainingLives
 	{
         get { return _remainingLives; }
@@ -21,6 +21,12 @@ public class GameMaster : MonoBehaviour
 	public Transform spawnPrefab;
 	public AudioClip respawnAudio;
 
+	[SerializeField]
+	private int maxLives = 3;
+
+	[SerializeField]
+	private GameObject gameOverUI;
+
 	private void Awake()
     {
         if(gm == null)
@@ -33,11 +39,13 @@ public class GameMaster : MonoBehaviour
     void Start()
 	{
 		canSpawn = true;
+		_remainingLives = maxLives;
 	}
 
     public void EndGame()
 	{
 		Debug.Log("GAME OVER!!!");
+		gameOverUI.SetActive(true);
 	}
 
      public IEnumerator RespawnPlayer()
@@ -75,9 +83,9 @@ public class GameMaster : MonoBehaviour
 		}
 		else
 		{
-
+			gm.StartCoroutine(gm.RespawnPlayer());
 		}
-		gm.StartCoroutine(gm.RespawnPlayer());  
+		 
 	}
 
     public static void KillEnemy(Enemy enemy)

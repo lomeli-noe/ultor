@@ -104,7 +104,7 @@ public class Weapon : MonoBehaviour
         if(hitNormal != new Vector3(9999, 9999, 9999))
         {
             Transform hitParticle = Instantiate(HitPrefab, hitPos, Quaternion.FromToRotation(Vector3.right, hitNormal)) as Transform;
-            Destroy(hitParticle.gameObject, 1f);
+            Destroy(hitParticle.gameObject, 2f);
         }
 
 		yield return new WaitForSeconds(.07f);

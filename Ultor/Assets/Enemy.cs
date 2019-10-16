@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     public EnemyStats stats = new EnemyStats();
     public float knockBack;
     private Rigidbody2D rb;
+    public Transform HitPrefab;
 
     private void Start()
     {
@@ -55,11 +56,15 @@ public class Enemy : MonoBehaviour
         if (hitFromLeft)
         {
             rb.velocity = new Vector2(knockBack, knockBack);
+            
         }
         else
         {
             rb.velocity = new Vector2(-knockBack, knockBack);
+
         }
+        Transform hitParticle = Instantiate(HitPrefab, transform.position, Quaternion.FromToRotation(Vector3.right, transform.position)) as Transform;
+        Destroy(hitParticle.gameObject, 1f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
