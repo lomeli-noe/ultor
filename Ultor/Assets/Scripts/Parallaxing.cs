@@ -4,43 +4,25 @@ using UnityEngine;
 
 public class Parallaxing : MonoBehaviour
 {
-    public Transform[] backgrounds;
-    private float[] parallaxScales;
-    public float smoothing = 1; // Make sure to set this above 0.
-    private Transform cam; // Reference main camera's transform
-    private Vector3 previousCamPos; // Position of camera in previous frame
+    private float length, startpos;
+    public GameObject cam;
+    public float parallaxEffect;
 
-    private void Awake()
+    private void Start()
     {
-        cam = Camera.main.transform;
+        startpos = transform.position.x;
+        length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        previousCamPos = cam.position;
-        parallaxScales = new float[backgrounds.Length];
+        float temp = (cam.transform.position.x * (1 - parallaxEffect));
 
-        for (int i = 0; i < backgrounds.Length; i++)
-        {
-            parallaxScales[i] = backgrounds[i].position.z * -1;
-        }
-    }
+        float dist = (cam.transform.position.x * parallaxEffect);
+        transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.y);
 
-    // Update is called once per frame
-    void Update()
-    {
-        for (int i = 0; i < backgrounds.Length; i++)
-        {
-            float parallax = (previousCamPos.x - cam.position.x) * parallaxScales[i];
+        if (temp > startpos + length) startpos += length;
+        else if (temp < startpos - length) startpos -= length;
 
-            float backgroundTargetPosX = backgrounds[i].position.x + parallax;
-
-            Vector3 backgroundTargetPos = new Vector3(backgroundTargetPosX, backgrounds[i].position.y, backgrounds[i].position.z);
-
-            backgrounds[i].position = Vector3.Lerp(backgrounds[i].position, backgroundTargetPos, smoothing * Time.deltaTime);
-        }
-
-        previousCamPos = cam.position;
     }
 }
