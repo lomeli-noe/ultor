@@ -83,7 +83,7 @@ namespace UnityStandardAssets._2D
             clone.parent = firePoint;
             float size = Random.Range(0.9f, 1.2f);
             clone.localScale = new Vector3(-size, size, size);
-            Destroy(clone.gameObject, 0.2f);
+            Destroy(clone.gameObject, 0.1f);
         }
 
         IEnumerator DisablePunch()

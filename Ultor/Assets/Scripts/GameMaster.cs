@@ -19,13 +19,15 @@ public class GameMaster : MonoBehaviour
 	public Transform enemyPrefab;
 	public float spawnDelay = 2;
 	public Transform spawnPrefab;
-	public AudioClip respawnAudio;
+    public string spawnSoundName;
 
 	[SerializeField]
 	private int maxLives = 3;
 
 	[SerializeField]
 	private GameObject gameOverUI;
+
+    private AudioManager audioManager;
 
 	private void Awake()
     {
@@ -40,6 +42,11 @@ public class GameMaster : MonoBehaviour
 	{
 		canSpawn = true;
 		_remainingLives = maxLives;
+        audioManager = AudioManager.instance;
+        if(audioManager == null)
+        {
+            Debug.LogError("No audiomanager found!");
+        }
 	}
 
     public void EndGame()
@@ -51,9 +58,8 @@ public class GameMaster : MonoBehaviour
      public IEnumerator RespawnPlayer()
     {
 		canSpawn = false;
-		yield return new WaitForSeconds(spawnDelay);
 
-		AudioSource.PlayClipAtPoint(respawnAudio, new Vector3(spawnPoint.position.x, spawnPoint.position.y, spawnPoint.position.z), 0.5f);
+        audioManager.PlaySound(spawnSoundName);
         yield return new WaitForSeconds(spawnDelay);
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
         Transform clone = Instantiate(spawnPrefab, spawnPoint.position, spawnPoint.rotation) as Transform;
