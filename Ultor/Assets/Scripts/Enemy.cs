@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
     [System.Serializable]
     public class EnemyStats
     {
@@ -28,12 +29,22 @@ public class Enemy : MonoBehaviour
     public EnemyStats stats = new EnemyStats();
     public float knockBack;
     private Rigidbody2D rb;
+    private BoxCollider2D boxCol;
     public Transform HitPrefab;
+    AudioManager audioManager;
+    string punchEnemySound = "PunchEnemy";
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        boxCol = GetComponent<BoxCollider2D>();
         stats.Init();
+
+        audioManager = AudioManager.instance;
+        if(audioManager == null)
+        {
+            Debug.LogError("No audiomanager found!");
+        }
     }
 
     public void DamageEnemy(int damage)
@@ -56,15 +67,22 @@ public class Enemy : MonoBehaviour
         if (hitFromLeft)
         {
             rb.velocity = new Vector2(knockBack, knockBack);
-            
         }
         else
         {
             rb.velocity = new Vector2(-knockBack, knockBack);
-
         }
+        audioManager.PlaySound(punchEnemySound);
         Transform hitParticle = Instantiate(HitPrefab, transform.position, Quaternion.FromToRotation(Vector3.right, transform.position)) as Transform;
         Destroy(hitParticle.gameObject, 1f);
+        StartCoroutine(ResetCollider());
+    }
+
+    IEnumerator ResetCollider()
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(.5f);
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

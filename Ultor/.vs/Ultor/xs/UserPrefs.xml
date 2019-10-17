@@ -1,20 +1,17 @@
 ﻿<Properties StartupConfiguration="{D84C30B8-797C-CAD1-BCCA-C91F06773295}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnemyAI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs">
     <Files>
-      <File FileName="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" Line="86" Column="42" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/Platformer2DUserControl.cs" Line="70" Column="1" />
-      <File FileName="Assets/Scripts/GameMaster.cs" Line="95" Column="2" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" Line="2" Column="1" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/Platformer2DUserControl.cs" Line="56" Column="5" />
+      <File FileName="Assets/Scripts/GameMaster.cs" Line="61" Column="1" />
       <File FileName="Assets/Scripts/Parallaxing.cs" />
       <File FileName="Assets/EnemySpawner.cs" Line="23" Column="6" />
       <File FileName="Assets/Scripts/Player.cs" />
       <File FileName="Assets/LivesCounterUI.cs" />
-      <File FileName="Assets/GameOverUI.cs" />
+      <File FileName="Assets/GameOverUI.cs" Line="17" Column="1" />
       <File FileName="Assets/AttackTrigger.cs" Line="18" Column="1" />
-      <File FileName="Assets/Scripts/Camera2DFollow.cs" />
-      <File FileName="Assets/Enemy.cs" Line="81" Column="1" />
-      <File FileName="Assets/MenuManager.cs" Line="8" Column="12" />
-      <File FileName="Assets/Scripts/AudioManager.cs" Line="31" Column="56" />
       <File FileName="Assets/Scripts/EnemyAI.cs" Line="27" Column="32" />
+      <File FileName="Assets/Enemy.cs" Line="79" Column="45" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

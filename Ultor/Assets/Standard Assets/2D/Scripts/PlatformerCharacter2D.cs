@@ -68,43 +68,53 @@ namespace UnityStandardAssets._2D
 
         public void Punch()
         {
-            m_Anim.SetBool("Punch", true);
-            attackTrigger.enabled = true;
-            
-            StartCoroutine(DisablePunch());
-            StartCoroutine(PunchEffect());
+            if (!attacking)
+            {
+                attacking = true;
+                m_Anim.SetBool("Punch", true);
+                attackTrigger.enabled = true;
+
+                StartCoroutine(DisablePunch());
+                StartCoroutine(PunchEffect());
+            }
 
         }
 
         IEnumerator PunchEffect()
         {
-            yield return new WaitForSeconds(.07f);
+            yield return new WaitForSeconds(.05f);
             Transform clone = Instantiate(PunchEffectPrefab, firePoint.position, firePoint.rotation) as Transform;
             clone.parent = firePoint;
             float size = Random.Range(0.9f, 1.2f);
             clone.localScale = new Vector3(-size, size, size);
-            Destroy(clone.gameObject, 0.1f);
+            Destroy(clone.gameObject, 0.03f);
+            attacking = false;
         }
 
         IEnumerator DisablePunch()
         {
-            yield return new WaitForSeconds(.05f);
+            yield return new WaitForSeconds(.03f);
             attackTrigger.enabled = false;
             m_Anim.SetBool("Punch", false);
         }
 
         public void Kick()
         {
-            m_Anim.SetBool("Kick", true);
-            attackTrigger.enabled = true;
+            if (!attacking)
+            {
+                attacking = true;
+                m_Anim.SetBool("Kick", attacking);
+                attackTrigger.enabled = true;
 
-            StartCoroutine(DisableKick());
-            StartCoroutine(PunchEffect());
+                StartCoroutine(DisableKick());
+                StartCoroutine(PunchEffect());
+            }
+            
         }
 
         IEnumerator DisableKick()
         {
-            yield return new WaitForSeconds(.05f);
+            yield return new WaitForSeconds(.03f);
             attackTrigger.enabled = false;
             m_Anim.SetBool("Kick", false);
         }

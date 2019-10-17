@@ -336,7 +336,7 @@ PrefabInstance:
     - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
         type: 3}
       propertyPath: sounds.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
         type: 3}
@@ -386,6 +386,36 @@ PrefabInstance:
     - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
         type: 3}
       propertyPath: sounds.Array.data[2].pitchRand
+      value: 0.209
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
+        type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: PunchEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
+        type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ec1268ca4ba7d49f19db5829e477685b, type: 3}
+    - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
+        type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
+        type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
+        type: 3}
+      propertyPath: sounds.Array.data[3].volumeRand
+      value: 0.264
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
+        type: 3}
+      propertyPath: sounds.Array.data[3].pitchRand
       value: 0.209
       objectReference: {fileID: 0}
     m_RemovedComponents: []
