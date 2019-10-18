@@ -2,10 +2,9 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp-firstpass.dll:
     - FixedJoystick
-    - UnityStandardAssets._2D.Platformer2DUserControl
-    - UnityStandardAssets._2D.PlatformerCharacter2D
     Assembly-CSharp.dll:
     - AttackTrigger
+    - AudioManager
     - CameraShake
     - Enemy
     - EnemyAI
@@ -18,6 +17,8 @@ ScriptsOnlyBuild:
     - Player
     - Stats
     - UnityStandardAssets._2D.Camera2DFollow
+    - UnityStandardAssets._2D.Platformer2DUserControl
+    - UnityStandardAssets._2D.PlatformerCharacter2D
     - Weapon
     AstarPathfindingProject.dll:
     - AstarPath
@@ -64,8 +65,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -108,8 +111,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 83
-      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -149,31 +150,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11778}
     - Class: 114
-      Script: {instanceID: 12108}
+      Script: {instanceID: 12110}
     - Class: 114
-      Script: {instanceID: 12200}
+      Script: {instanceID: 12202}
     - Class: 114
-      Script: {instanceID: 12248}
+      Script: {instanceID: 12250}
     - Class: 114
-      Script: {instanceID: 12326}
+      Script: {instanceID: 12328}
     - Class: 114
-      Script: {instanceID: 12570}
+      Script: {instanceID: 12572}
     - Class: 114
-      Script: {instanceID: 12592}
+      Script: {instanceID: 12594}
     - Class: 114
-      Script: {instanceID: 12696}
+      Script: {instanceID: 12698}
     - Class: 114
-      Script: {instanceID: 12706}
+      Script: {instanceID: 12708}
     - Class: 114
-      Script: {instanceID: 12808}
+      Script: {instanceID: 12810}
     - Class: 114
-      Script: {instanceID: 13178}
+      Script: {instanceID: 13182}
     - Class: 114
-      Script: {instanceID: 13376}
+      Script: {instanceID: 13380}
     - Class: 114
-      Script: {instanceID: 13442}
+      Script: {instanceID: 13446}
     - Class: 114
-      Script: {instanceID: 13528}
+      Script: {instanceID: 13532}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -219,6 +220,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
@@ -246,13 +249,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11778}
     - Class: 114
-      Script: {instanceID: 12398}
+      Script: {instanceID: 11976}
     - Class: 114
-      Script: {instanceID: 12696}
+      Script: {instanceID: 12400}
     - Class: 114
-      Script: {instanceID: 13442}
+      Script: {instanceID: 12698}
     - Class: 114
-      Script: {instanceID: 37576}
+      Script: {instanceID: 13124}
+    - Class: 114
+      Script: {instanceID: 13446}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -330,7 +335,7 @@ ScriptsOnlyBuild:
     className: ObjectPlacer
   - hash:
       serializedVersion: 2
-      Hash: 061d5e08e4dcebace62a0f7af4622578
+      Hash: 6feb29fd96ac18a710cd6bf753bf68b8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameMaster
@@ -811,7 +816,7 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: dc0c855440d59a516315a62ef55d7fd8
-    assemblyName: Assembly-CSharp-firstpass.dll
+    assemblyName: Assembly-CSharp.dll
     namespaceName: UnityStandardAssets._2D
     className: CameraFollow
   - hash:
@@ -1038,8 +1043,14 @@ ScriptsOnlyBuild:
     className: NetworkStartPosition
   - hash:
       serializedVersion: 2
+      Hash: 36257e05d34db5a46ab842b50cd73c72
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AudioManager
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
+    assemblyName: Assembly-CSharp.dll
     namespaceName: UnityStandardAssets._2D
     className: Restarter
   - hash:
@@ -1117,7 +1128,7 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 7e32416b69e54faca8b5b3bb61b7fb42
-    assemblyName: Assembly-CSharp-firstpass.dll
+    assemblyName: Assembly-CSharp.dll
     namespaceName: UnityStandardAssets._2D
     className: Platformer2DUserControl
   - hash:
@@ -1452,6 +1463,12 @@ ScriptsOnlyBuild:
     className: NetworkAnimator
   - hash:
       serializedVersion: 2
+      Hash: 3f376cee9aba73084b37818aa42bf841
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MenuManager
+  - hash:
+      serializedVersion: 2
       Hash: b349b142d600a2478af04cea15b41a0b
     assemblyName: AstarPathfindingProject.dll
     namespaceName: Pathfinding
@@ -1590,8 +1607,8 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: a9915960a37e92889b5bfde2db6ff21e
-    assemblyName: Assembly-CSharp-firstpass.dll
+      Hash: 139fc3fb0fac8e49e3aec6280188fdeb
+    assemblyName: Assembly-CSharp.dll
     namespaceName: UnityStandardAssets._2D
     className: PlatformerCharacter2D
   - hash:
@@ -1606,12 +1623,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Utility
     className: AutoMobileShaderSwitch
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MenuManager
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
