@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyAI))]
 public class Enemy : MonoBehaviour
 {
 
@@ -45,6 +46,13 @@ public class Enemy : MonoBehaviour
         {
             Debug.LogError("No audiomanager found!");
         }
+
+        GameMaster.gm.onToggleUpgradeMenu += OnUpgradeMenuToggle;
+    }
+
+    void OnUpgradeMenuToggle(bool active)
+    {
+        GetComponent<EnemyAI>().enabled = !active;
     }
 
     public void DamageEnemy(int damage)

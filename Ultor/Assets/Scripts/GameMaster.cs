@@ -27,6 +27,21 @@ public class GameMaster : MonoBehaviour
 	[SerializeField]
 	private GameObject gameOverUI;
 
+    [SerializeField]
+    private GameObject upgradeMenu;
+
+    [SerializeField]
+    private EnemySpawner enemySpawner;
+
+    [SerializeField]
+    private EnemySpawner batSpawner;
+
+    [SerializeField]
+    private EnemySpawner batSpawner2;
+
+    public delegate void UpgradeMenuCallback(bool active);
+    public UpgradeMenuCallback onToggleUpgradeMenu;
+
     private AudioManager audioManager;
 
 	private void Awake()
@@ -48,6 +63,16 @@ public class GameMaster : MonoBehaviour
             Debug.LogError("No audiomanager found!");
         }
 	}
+
+    public void UpgradeMenuToggle()
+    {
+        upgradeMenu.SetActive(!upgradeMenu.activeSelf);
+        enemySpawner.enabled = !upgradeMenu.activeSelf;
+        batSpawner.enabled = !upgradeMenu.activeSelf;
+        batSpawner2.enabled = !upgradeMenu.activeSelf;
+        onToggleUpgradeMenu.Invoke(upgradeMenu.activeSelf);
+
+    }
 
     public void EndGame()
 	{

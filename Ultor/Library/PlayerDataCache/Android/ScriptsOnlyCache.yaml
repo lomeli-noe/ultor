@@ -24,6 +24,7 @@ ScriptsOnlyBuild:
     - AstarPath
     - Pathfinding.Seeker
     Unity.2D.Animation.Editor.dll:
+    - UnityEditor.Experimental.U2D.Animation.BoneCache
     - UnityEditor.Experimental.U2D.Animation.BoneGizmo
     - UnityEditor.Experimental.U2D.Animation.BoneReparentTool
     - UnityEditor.Experimental.U2D.Animation.CopyTool

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
+[RequireComponent(typeof(Platformer2DUserControl))]
 public class Player : MonoBehaviour
 {
 
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
 	private void Start()
 	{
 		mana.MyCurrentValue = 0;
+        GameMaster.gm.onToggleUpgradeMenu += OnUpgradeMenuToggle;
 	}
 
     private void Update()
@@ -28,11 +30,13 @@ public class Player : MonoBehaviour
             DamagePlayer(99999);
         }
 
-		mana.MyCurrentValue += manaValue;
-		health.MyCurrentValue += healthValue;
 	}
 
-
+    void OnUpgradeMenuToggle(bool active)
+    {
+        GetComponent<Platformer2DUserControl>().enabled = !active;
+        
+    }
 
     public void DamagePlayer(int damage)
     {
