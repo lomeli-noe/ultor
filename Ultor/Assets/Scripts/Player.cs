@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
 	{
 		mana.MyCurrentValue = 0;
         GameMaster.gm.onToggleUpgradeMenu += OnUpgradeMenuToggle;
+
+        InvokeRepeating("RegenHealth", 1f/health.healthRegenRate, 1f/health.healthRegenRate);
 	}
 
     private void Update()
@@ -32,10 +34,25 @@ public class Player : MonoBehaviour
 
 	}
 
+    void RegenHealth()
+    {
+        if(GetComponent<Platformer2DUserControl>().enabled)
+            health.MyCurrentValue += 1;
+        else
+            health.MyCurrentValue += 0;
+
+    }
+
     void OnUpgradeMenuToggle(bool active)
     {
         GetComponent<Platformer2DUserControl>().enabled = !active;
-        
+        health.enabled = !active;
+
+    }
+
+    void OnDestroy()
+    {
+        GameMaster.gm.onToggleUpgradeMenu -= OnUpgradeMenuToggle;
     }
 
     public void DamagePlayer(int damage)

@@ -35,6 +35,8 @@ public class Enemy : MonoBehaviour
     AudioManager audioManager;
     string punchEnemySound = "PunchEnemy";
 
+    public int moneyDrop = 10;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -102,5 +104,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
-
+    void OnDestroy()
+    {
+        GameMaster.gm.onToggleUpgradeMenu -= OnUpgradeMenuToggle;
+    }
 }

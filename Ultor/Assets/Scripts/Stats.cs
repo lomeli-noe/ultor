@@ -3,11 +3,14 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
+    public static Stats instance;
 
     private Image content;
     private float currentHealth;
     private float currentFill;
     public int maxHealth = 100;
+    public float healthRegenRate = 2f;
+    public float movementSpeed = 8f;
 
     public float MyCurrentValue
     {
@@ -25,6 +28,14 @@ public class Stats : MonoBehaviour
                 currentHealth = value;
             }
             currentFill = currentHealth / maxHealth;
+        }
+    }
+
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
         }
     }
 

@@ -13,6 +13,11 @@ public class GameMaster : MonoBehaviour
         get { return _remainingLives; }
 	}
 
+
+    [SerializeField]
+    private int startingMoney;
+    public static int money;
+
 	private bool canSpawn;
 	public Transform playerPrefab;
 	public Transform spawnPoint;
@@ -57,6 +62,7 @@ public class GameMaster : MonoBehaviour
 	{
 		canSpawn = true;
 		_remainingLives = maxLives;
+        money = startingMoney;
         audioManager = AudioManager.instance;
         if(audioManager == null)
         {
@@ -121,6 +127,7 @@ public class GameMaster : MonoBehaviour
 
     public static void KillEnemy(Enemy enemy)
 	{
-		Destroy(enemy.gameObject); 
+        money += enemy.moneyDrop;
+        Destroy(enemy.gameObject); 
 	}
 }

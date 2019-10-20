@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\GameOverUI.cs" />
     <Compile Include="Assets\Scripts\LivesCounterUI.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\MoneyCounterUI.cs" />
     <Compile Include="Assets\Scripts\MoveTrail.cs" />
     <Compile Include="Assets\Scripts\Parallaxing.cs" />
     <Compile Include="Assets\Scripts\Platformer2DUserControl.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\Scripts\Stats.cs" />
     <Compile Include="Assets\Scripts\StatusIndicator.cs" />
     <Compile Include="Assets\Scripts\Tiling.cs" />
+    <Compile Include="Assets\Scripts\UpgradeMenu.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
