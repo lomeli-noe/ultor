@@ -10,20 +10,32 @@ public class Player : MonoBehaviour
 	public float healthValue;
 
     [SerializeField]
-	private Stats health;
+	public Stats health;
 
 	[SerializeField]
-	private Stats mana;
+	public Stats mana;
+
+    private GameObject healthObject;
+    private GameObject manaObject;
 
     public int fallBoundary = -20;
 
 	private void Start()
 	{
-		mana.MyCurrentValue = 0;
         GameMaster.gm.onToggleUpgradeMenu += OnUpgradeMenuToggle;
 
+        healthObject = GameObject.Find("HealthLevel");
+        health = healthObject.GetComponent<Stats>();
+
+        manaObject = GameObject.Find("ManaLevel");
+        mana = manaObject.GetComponent<Stats>();
+        health.MyCurrentValue = health.maxHealth;
+
+        Debug.Log("health after: " + health.MyCurrentValue);
         InvokeRepeating("RegenHealth", 1f/health.healthRegenRate, 1f/health.healthRegenRate);
 	}
+
+
 
     private void Update()
     {

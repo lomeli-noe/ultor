@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
-
 
 [RequireComponent(typeof (PlatformerCharacter2D))]
 public class Platformer2DUserControl : MonoBehaviour
@@ -11,6 +11,8 @@ public class Platformer2DUserControl : MonoBehaviour
 
 
     protected Joystick joystick;
+    protected Button punchButton;
+    protected Button kickButton;
     float horizontalMove = 0f;
 	float verticalMove = 0f;
         
@@ -21,7 +23,11 @@ public class Platformer2DUserControl : MonoBehaviour
     void Start()
 	{
 		joystick = FindObjectOfType<Joystick>();
-	}
+        punchButton = GameObject.Find("Punch").GetComponent<Button>();
+        punchButton.onClick.AddListener(m_Character.Punch);
+        kickButton = GameObject.Find("Kick").GetComponent<Button>();
+        kickButton.onClick.AddListener(m_Character.Kick);
+    }
 
 	private void Awake()
     {
