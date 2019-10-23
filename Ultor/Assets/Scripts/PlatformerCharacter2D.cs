@@ -38,11 +38,16 @@ public class PlatformerCharacter2D : MonoBehaviour
 		private void Start()
 	{
 		camShake = GameMaster.gm.GetComponent<CameraShake>();
+
 		if (camShake == null)
 		{
 			Debug.LogError("No camera shake script found on GM object.");
 		}
-	}
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+        int playerLayer = LayerMask.NameToLayer("Player");
+        Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
+
+    }
 
     private void Awake()
     {
@@ -51,6 +56,7 @@ public class PlatformerCharacter2D : MonoBehaviour
         m_GroundCheck = transform.Find("GroundCheck");
         m_CeilingCheck = transform.Find("CeilingCheck");
         m_Anim = GetComponent<Animator>();
+        m_Anim.SetLayerWeight(1, 0);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerGraphics = transform.Find("PlayerBodyParts").Find("Graphics");
         if (playerGraphics == null)
@@ -179,6 +185,23 @@ public class PlatformerCharacter2D : MonoBehaviour
         m_Anim.SetBool("Kick", false);
     }
 
+    public void HurtEffect(float duration)
+    {
+        StartCoroutine(StopHurtEffect(duration));
+    }
+
+    IEnumerator StopHurtEffect(float duration)
+    {
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+        int playerLayer = LayerMask.NameToLayer("Player");
+        Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer);
+
+        m_Anim.SetLayerWeight(1, 1);
+        yield return new WaitForSeconds(duration);
+        Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false );
+        m_Anim.SetLayerWeight(1, 0);
+
+    }
 
     public void Move(float move, bool crouch, bool jump)
     {

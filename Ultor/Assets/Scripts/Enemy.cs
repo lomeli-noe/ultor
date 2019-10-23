@@ -50,6 +50,10 @@ public class Enemy : MonoBehaviour
         }
 
         GameMaster.gm.onToggleUpgradeMenu += OnUpgradeMenuToggle;
+
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+        Physics2D.IgnoreLayerCollision(enemyLayer, enemyLayer, true);
+
     }
 
     void OnUpgradeMenuToggle(bool active)

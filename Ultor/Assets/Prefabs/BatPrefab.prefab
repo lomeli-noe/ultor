@@ -162,7 +162,7 @@ Rigidbody2D:
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -228,6 +228,7 @@ MonoBehaviour:
   knockBack: 7
   HitPrefab: {fileID: 6181808546924271950, guid: 17babee5bd35c47e284a7fd144ebacf1,
     type: 3}
+  moneyDrop: 10
 --- !u!95 &1741812847189496457
 Animator:
   serializedVersion: 3

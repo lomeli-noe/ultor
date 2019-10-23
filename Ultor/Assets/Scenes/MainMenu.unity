@@ -336,7 +336,7 @@ PrefabInstance:
     - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
         type: 3}
       propertyPath: sounds.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
         type: 3}
@@ -541,6 +541,36 @@ PrefabInstance:
     - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
         type: 3}
       propertyPath: sounds.Array.data[7].pitchRand
+      value: 0.196
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
+        type: 3}
+      propertyPath: sounds.Array.data[8].name
+      value: PunchPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
+        type: 3}
+      propertyPath: sounds.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a10760f9f458244a7a25c1ba84e175a8, type: 3}
+    - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
+        type: 3}
+      propertyPath: sounds.Array.data[8].volume
+      value: 0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
+        type: 3}
+      propertyPath: sounds.Array.data[8].pitch
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
+        type: 3}
+      propertyPath: sounds.Array.data[8].volumeRand
+      value: 0.216
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678234090641066287, guid: e4d8b76f028974690889e62b41eb5d76,
+        type: 3}
+      propertyPath: sounds.Array.data[8].pitchRand
       value: 0.196
       objectReference: {fileID: 0}
     m_RemovedComponents: []

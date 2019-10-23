@@ -22,7 +22,7 @@ public class Platformer2DUserControl : MonoBehaviour
 
     void Start()
 	{
-		joystick = FindObjectOfType<Joystick>();
+        joystick = FindObjectOfType<Joystick>();
         punchButton = GameObject.Find("Punch").GetComponent<Button>();
         punchButton.onClick.AddListener(m_Character.Punch);
         kickButton = GameObject.Find("Kick").GetComponent<Button>();
@@ -62,11 +62,7 @@ public class Platformer2DUserControl : MonoBehaviour
 		}
 
 		// Pass all parameters to the character control script.
-		m_Character.Move(horizontalMove,
-                            crouch,
-                            m_Jump
-                             
-                            );
+		m_Character.Move(horizontalMove, crouch, m_Jump);
         m_Jump = false;
             
     }

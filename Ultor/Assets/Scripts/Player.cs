@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     private GameObject healthObject;
     private GameObject manaObject;
 
+    public float invincibleTime = 2f;
+
     public int fallBoundary = -20;
 
 	private void Start()
@@ -31,7 +33,6 @@ public class Player : MonoBehaviour
         mana = manaObject.GetComponent<Stats>();
         health.MyCurrentValue = health.maxHealth;
 
-        Debug.Log("health after: " + health.MyCurrentValue);
         InvokeRepeating("RegenHealth", 1f/health.healthRegenRate, 1f/health.healthRegenRate);
 	}
 
@@ -70,12 +71,15 @@ public class Player : MonoBehaviour
     public void DamagePlayer(int damage)
     {
 		health.MyCurrentValue -= damage;
-        if(health.MyCurrentValue <= 0)
+        AudioManager.instance.PlaySound("PunchPlayer");
+        if (health.MyCurrentValue <= 0)
         {
             GameMaster.KillPlayer(this);
 		}
 
-	}
+        GetComponent<PlatformerCharacter2D>().HurtEffect(invincibleTime);
+
+    }
     
 
 }

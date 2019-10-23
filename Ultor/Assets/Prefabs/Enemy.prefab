@@ -1725,11 +1725,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    maxHealth: 300
+    maxHealth: 100
     damage: 20
   knockBack: 7
   HitPrefab: {fileID: 6181808546924271950, guid: 17babee5bd35c47e284a7fd144ebacf1,
     type: 3}
+  moneyDrop: 10
 --- !u!95 &7889141322488038199
 Animator:
   serializedVersion: 3

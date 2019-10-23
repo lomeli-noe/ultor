@@ -1169,10 +1169,10 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 1
   m_GravityScale: 3.5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8b055391b72d447a09d077797ec4e9d9, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &7734087819644232114
 MonoBehaviour:
@@ -1255,6 +1255,7 @@ MonoBehaviour:
   healthValue: 0.05
   health: {fileID: 0}
   mana: {fileID: 0}
+  invincibleTime: 2
   fallBoundary: -20
 --- !u!114 &383908491200142
 MonoBehaviour:
