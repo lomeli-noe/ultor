@@ -1,19 +1,17 @@
 ﻿<Properties StartupConfiguration="{D84C30B8-797C-CAD1-BCCA-C91F06773295}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Enemy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlatformerCharacter2D.cs">
     <Files>
-      <File FileName="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" Line="102" Column="43" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/Platformer2DUserControl.cs" Line="70" Column="1" />
-      <File FileName="Assets/Scripts/GameMaster.cs" Line="49" Column="3" />
-      <File FileName="Assets/Scripts/Parallaxing.cs" />
-      <File FileName="Assets/EnemySpawner.cs" Line="23" Column="8" />
-      <File FileName="Assets/Scripts/Player.cs" />
-      <File FileName="Assets/Stats.cs" />
-      <File FileName="Assets/LivesCounterUI.cs" />
-      <File FileName="Assets/GameOverUI.cs" />
-      <File FileName="Assets/AttackTrigger.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Camera2DFollow.cs" />
-      <File FileName="Assets/Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Weapon.cs" Line="13" Column="40" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player.cs" Line="74" Column="53" />
+      <File FileName="Assets/Scripts/MenuManager.cs" Line="11" Column="51" />
+      <File FileName="Assets/Scripts/MoneyCounterUI.cs" />
+      <File FileName="Assets/Scripts/LivesCounterUI.cs" />
+      <File FileName="Assets/Scripts/Stats.cs" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="55" Column="68" />
+      <File FileName="Assets/Scripts/Platformer2DUserControl.cs" Line="13" Column="15" />
+      <File FileName="Assets/Scripts/AttackTrigger.cs" Line="14" Column="1" />
+      <File FileName="Assets/Scripts/GameMaster.cs" Line="28" Column="1" />
+      <File FileName="Assets/Scripts/UpgradeMenu.cs" Line="39" Column="56" />
+      <File FileName="Assets/Scripts/PlatformerCharacter2D.cs" Line="205" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -23,7 +21,7 @@
     <String>AstarPathfindingProject.csproj</String>
   </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8b70d60e-22ff-4763-a098-9b6069cfb6a1" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="85115849-52a4-4c29-8a54-8cc6fe243d76" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

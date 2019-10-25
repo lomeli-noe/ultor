@@ -13,19 +13,38 @@ public class GameMaster : MonoBehaviour
         get { return _remainingLives; }
 	}
 
+
+    [SerializeField]
+    private int startingMoney;
+    public static int money;
+
 	private bool canSpawn;
 	public Transform playerPrefab;
 	public Transform spawnPoint;
 	public Transform enemyPrefab;
 	public float spawnDelay = 2;
 	public Transform spawnPrefab;
-	public AudioClip respawnAudio;
+    public string spawnSoundName;
 
 	[SerializeField]
 	private int maxLives = 3;
 
 	[SerializeField]
 	private GameObject gameOverUI;
+
+    [SerializeField]
+    private GameObject upgradeMenu;
+
+    [SerializeField]
+    private EnemySpawner enemySpawner;
+
+    [SerializeField]
+    private EnemySpawner batSpawner;
+
+    public delegate void UpgradeMenuCallback(bool active);
+    public UpgradeMenuCallback onToggleUpgradeMenu;
+
+    private AudioManager audioManager;
 
 	private void Awake()
     {
@@ -40,7 +59,22 @@ public class GameMaster : MonoBehaviour
 	{
 		canSpawn = true;
 		_remainingLives = maxLives;
+        money = startingMoney;
+        audioManager = AudioManager.instance;
+        if(audioManager == null)
+        {
+            Debug.LogError("No audiomanager found!");
+        }
 	}
+
+    public void UpgradeMenuToggle()
+    {
+        upgradeMenu.SetActive(!upgradeMenu.activeSelf);
+        enemySpawner.enabled = !upgradeMenu.activeSelf;
+        batSpawner.enabled = !upgradeMenu.activeSelf;
+        onToggleUpgradeMenu.Invoke(upgradeMenu.activeSelf);
+
+    }
 
     public void EndGame()
 	{
@@ -51,9 +85,8 @@ public class GameMaster : MonoBehaviour
      public IEnumerator RespawnPlayer()
     {
 		canSpawn = false;
-		yield return new WaitForSeconds(spawnDelay);
 
-		AudioSource.PlayClipAtPoint(respawnAudio, new Vector3(spawnPoint.position.x, spawnPoint.position.y, spawnPoint.position.z), 0.5f);
+        audioManager.PlaySound(spawnSoundName);
         yield return new WaitForSeconds(spawnDelay);
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
         Transform clone = Instantiate(spawnPrefab, spawnPoint.position, spawnPoint.rotation) as Transform;
@@ -90,6 +123,7 @@ public class GameMaster : MonoBehaviour
 
     public static void KillEnemy(Enemy enemy)
 	{
-		Destroy(enemy.gameObject); 
+        money += enemy.moneyDrop;
+        Destroy(enemy.gameObject); 
 	}
 }
