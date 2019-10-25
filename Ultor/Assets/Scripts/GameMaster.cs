@@ -41,9 +41,6 @@ public class GameMaster : MonoBehaviour
     [SerializeField]
     private EnemySpawner batSpawner;
 
-    [SerializeField]
-    private EnemySpawner batSpawner2;
-
     public delegate void UpgradeMenuCallback(bool active);
     public UpgradeMenuCallback onToggleUpgradeMenu;
 
@@ -75,7 +72,6 @@ public class GameMaster : MonoBehaviour
         upgradeMenu.SetActive(!upgradeMenu.activeSelf);
         enemySpawner.enabled = !upgradeMenu.activeSelf;
         batSpawner.enabled = !upgradeMenu.activeSelf;
-        batSpawner2.enabled = !upgradeMenu.activeSelf;
         onToggleUpgradeMenu.Invoke(upgradeMenu.activeSelf);
 
     }

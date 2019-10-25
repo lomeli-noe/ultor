@@ -51,6 +51,7 @@ ScriptsOnlyBuild:
     - UnityEngine.Experimental.U2D.Animation.SpriteSkin
     Unity.2D.IK.Editor.dll:
     - UnityEditor.Experimental.U2D.IK.IKEditorManager
+    - UnityEditor.Experimental.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.Experimental.U2D.IK.IKEditorManagerHelper
     - UnityEngine.Experimental.U2D.IK.IKManager2D
@@ -341,7 +342,7 @@ ScriptsOnlyBuild:
     className: ObjectPlacer
   - hash:
       serializedVersion: 2
-      Hash: ee5573885a3fcb53f41de8692128514a
+      Hash: 81881b7d748e91db0855c8543c78e6fc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameMaster

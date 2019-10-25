@@ -53,7 +53,14 @@ public class Enemy : MonoBehaviour
 
         int enemyLayer = LayerMask.NameToLayer("Enemy");
         Physics2D.IgnoreLayerCollision(enemyLayer, enemyLayer, true);
+        StartCoroutine(DestroyEnemy());
 
+    }
+
+    IEnumerator DestroyEnemy()
+    {
+        yield return new WaitForSeconds(10f);
+        Destroy(this.gameObject);
     }
 
     void OnUpgradeMenuToggle(bool active)
