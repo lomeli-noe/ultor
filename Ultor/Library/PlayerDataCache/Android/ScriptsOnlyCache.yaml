@@ -11,7 +11,6 @@ ScriptsOnlyBuild:
     - EnemySpawner
     - GameMaster
     - GameOverUI
-    - LivesCounterUI
     - MenuManager
     - MoneyCounterUI
     - Parallaxing
@@ -75,6 +74,7 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
@@ -137,8 +137,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10806}
     - Class: 114
-      Script: {instanceID: 10858}
-    - Class: 114
       Script: {instanceID: 10942}
     - Class: 114
       Script: {instanceID: 11166}
@@ -176,6 +174,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12816}
     - Class: 114
       Script: {instanceID: 13188}
+    - Class: 114
+      Script: {instanceID: 13370}
     - Class: 114
       Script: {instanceID: 13386}
     - Class: 114
@@ -1152,7 +1152,7 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: 7e32416b69e54faca8b5b3bb61b7fb42
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Platformer2DUserControl

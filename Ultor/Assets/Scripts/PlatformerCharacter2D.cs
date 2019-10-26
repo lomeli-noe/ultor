@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Platformer2DUserControl))]
 public class PlatformerCharacter2D : MonoBehaviour
 {
     [SerializeField] private float m_JumpForce = 300f;                  // Amount of force added when the player jumps.
@@ -19,6 +20,10 @@ public class PlatformerCharacter2D : MonoBehaviour
     Transform playerGraphics;
     Transform firePoint;
     public Transform PunchEffectPrefab;
+
+    bool canDoubleJump;
+
+    int count = 0;
 
     AudioManager audioManager;
 	[SerializeField]
@@ -46,7 +51,6 @@ public class PlatformerCharacter2D : MonoBehaviour
         int enemyLayer = LayerMask.NameToLayer("Enemy");
         int playerLayer = LayerMask.NameToLayer("Player");
         Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
-
     }
 
     private void Awake()
@@ -84,7 +88,10 @@ public class PlatformerCharacter2D : MonoBehaviour
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
+            {
                 m_Grounded = true;
+                canDoubleJump = false;
+            }
         }
         m_Anim.SetBool("Ground", m_Grounded);
 
@@ -203,7 +210,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 
     }
 
-    public void Move(float move, bool crouch, bool jump)
+    public void Move(float move, bool crouch)
     {
         // If crouching, check to see if the character can stand up
         if (!crouch && m_Anim.GetBool("Crouch"))
@@ -244,14 +251,37 @@ public class PlatformerCharacter2D : MonoBehaviour
                 Flip();
             }
         }
-        // If the player should jump...
-        if (m_Grounded && jump && m_Anim.GetBool("Ground"))
+        
+    }
+
+    public void Jump()
+    {
+        count++;
+        if (m_Grounded && m_Anim.GetBool("Ground"))
         {
             // Add a vertical force to the player.
             m_Grounded = false;
             m_Anim.SetBool("Ground", false);
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce/2));
+            canDoubleJump = true;
+            Invoke("EnableDoubleJump", .1f);
+            Debug.Log("Single Jump");
         }
+        else
+        {
+            if(canDoubleJump)
+            {
+                canDoubleJump = false;
+                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * 2));
+                Debug.Log("Double Jump");
+            }
+
+        }
+    }
+
+    void EnableDoubleJump()
+    {
+        canDoubleJump = true;
     }
 
 

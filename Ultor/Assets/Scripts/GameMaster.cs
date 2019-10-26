@@ -27,7 +27,7 @@ public class GameMaster : MonoBehaviour
     public string spawnSoundName;
 
 	[SerializeField]
-	private int maxLives = 3;
+	private int maxLives = 1;
 
 	[SerializeField]
 	private GameObject gameOverUI;
@@ -78,7 +78,6 @@ public class GameMaster : MonoBehaviour
 
     public void EndGame()
 	{
-		Debug.Log("GAME OVER!!!");
 		gameOverUI.SetActive(true);
 	}
 
