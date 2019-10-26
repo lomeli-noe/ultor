@@ -32,13 +32,14 @@ public class PlatformerCharacter2D : MonoBehaviour
 	public float camShakeAmt = 0.05f;
 	public float camShakeLength = 0.1f;
 	CameraShake camShake;
-
+    bool canAirKick;
 
 	private float attackTimer = 0;
     private float attackCd = .3f;
     private bool attacking = false;
 
-    public Collider2D attackTrigger;
+    public Collider2D punchTrigger;
+    public Collider2D kickTrigger;
 
 		private void Start()
 	{
@@ -68,14 +69,14 @@ public class PlatformerCharacter2D : MonoBehaviour
             Debug.LogError("No Graphics object as a child of player");
         }
 
-        attackTrigger.enabled = false;
+        punchTrigger.enabled = false;
+        kickTrigger.enabled = false;
     }
 
 
     private void FixedUpdate()
     {
         m_Grounded = false;
-
 		audioManager = AudioManager.instance;
 		if (audioManager == null)
 		{
@@ -91,6 +92,7 @@ public class PlatformerCharacter2D : MonoBehaviour
             {
                 m_Grounded = true;
                 canDoubleJump = false;
+                canAirKick = false;
             }
         }
         m_Anim.SetBool("Ground", m_Grounded);
@@ -110,14 +112,15 @@ public class PlatformerCharacter2D : MonoBehaviour
                 m_Anim.SetBool("FlyingPunch", attacking);
 
                 StartCoroutine(DisableFlyingPunch());
-                attackTrigger.enabled = true;
+                punchTrigger.enabled = true;
                 StartCoroutine(PunchEffect());
+                m_Rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * 10 * Time.deltaTime;
             }
             else
             {
                 m_Anim.SetBool("Punch", attacking);
                 StartCoroutine(DisablePunch());
-                attackTrigger.enabled = true;
+                punchTrigger.enabled = true;
                 StartCoroutine(PunchEffect());
             }
         }
@@ -129,21 +132,22 @@ public class PlatformerCharacter2D : MonoBehaviour
         if (!attacking)
         {
             attacking = true;
-
-            if (!m_Grounded && !m_Anim.GetBool("FlyingKick"))
+            if (!m_Grounded && !m_Anim.GetBool("FlyingKick") && canAirKick)
             {
                 m_Anim.SetBool("FlyingKick", attacking);
                 StartCoroutine(DisableFlyingKick());
-                attackTrigger.enabled = true;
+                kickTrigger.enabled = true;
                 StartCoroutine(PunchEffect());
+                attacking = false;
             }
-            else
+            if(m_Grounded)
             {
                 m_Anim.SetBool("Kick", attacking);
                 StartCoroutine(DisableKick());
-                attackTrigger.enabled = true;
+                kickTrigger.enabled = true;
                 StartCoroutine(PunchEffect());
             }
+            attacking = false;
         }
             
     }
@@ -162,33 +166,36 @@ public class PlatformerCharacter2D : MonoBehaviour
 
     IEnumerator DisableFlyingKick()
     {
-        yield return new WaitForSeconds(.25f);
+        m_Rigidbody2D.AddForce(new Vector2(m_JumpForce * 12, 0f));
+        m_Rigidbody2D.velocity += Vector2.down * Physics2D.gravity.y * 10 * Time.deltaTime;
+        canAirKick = false;
+        yield return new WaitForSeconds(.5f);
         attacking = false;
-        attackTrigger.enabled = false;
+        kickTrigger.enabled = false;
         m_Anim.SetBool("FlyingKick", false);
     }
 
     IEnumerator DisableFlyingPunch()
     {
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.5f);
         attacking = false;
-        attackTrigger.enabled = false;
+        punchTrigger.enabled = false;
         m_Anim.SetBool("FlyingPunch", false);
     }
 
     IEnumerator DisablePunch()
     {
-        yield return new WaitForSeconds(.07f);
+        yield return new WaitForSeconds(.15f);
         attacking = false;
-        attackTrigger.enabled = false;
+        punchTrigger.enabled = false;
         m_Anim.SetBool("Punch", false);
     }
 
     IEnumerator DisableKick()
     {
-        yield return new WaitForSeconds(.09f);
+        yield return new WaitForSeconds(.15f);
         attacking = false;
-        attackTrigger.enabled = false;
+        kickTrigger.enabled = false;
         m_Anim.SetBool("Kick", false);
     }
 
@@ -238,6 +245,7 @@ public class PlatformerCharacter2D : MonoBehaviour
             // Move the character
             m_Rigidbody2D.velocity = new Vector2(move*Stats.instance.movementSpeed, m_Rigidbody2D.velocity.y);
 
+            Debug.Log("Velocity: " + m_Rigidbody2D.velocity);
             // If the input is moving the player right and the player is facing left...
             if (move > 0 && !m_FacingRight)
             {
@@ -256,7 +264,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 
     public void Jump()
     {
-        count++;
+        canAirKick = true;
         if (m_Grounded && m_Anim.GetBool("Ground"))
         {
             // Add a vertical force to the player.
@@ -265,7 +273,6 @@ public class PlatformerCharacter2D : MonoBehaviour
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce/2));
             canDoubleJump = true;
             Invoke("EnableDoubleJump", .1f);
-            Debug.Log("Single Jump");
         }
         else
         {
@@ -273,7 +280,6 @@ public class PlatformerCharacter2D : MonoBehaviour
             {
                 canDoubleJump = false;
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * 2));
-                Debug.Log("Double Jump");
             }
 
         }

@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BlueCoin.cs" />
     <Compile Include="Assets\Scripts\AttackTrigger.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\GameMaster.cs" />
     <Compile Include="Assets\Scripts\GameOverUI.cs" />
+    <Compile Include="Assets\Scripts\KickTrigger.cs" />
     <Compile Include="Assets\Scripts\LivesCounterUI.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\MoneyCounterUI.cs" />

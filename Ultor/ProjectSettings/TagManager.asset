@@ -9,6 +9,7 @@ TagManager:
   - GM
   - Enemy
   - Joystick
+  - Coin
   layers:
   - Default
   - TransparentFX

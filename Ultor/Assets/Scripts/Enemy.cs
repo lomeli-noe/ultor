@@ -79,7 +79,7 @@ public class Enemy : MonoBehaviour
 
     public void PunchEnemy(bool hitFromLeft)
     {
-        stats.curHealth -= 30;
+        stats.curHealth -= 20;
         if (stats.curHealth <= 0)
         {
             GameMaster.KillEnemy(this);
@@ -87,11 +87,33 @@ public class Enemy : MonoBehaviour
 
         if (hitFromLeft)
         {
-            rb.velocity = new Vector2(knockBack, knockBack);
+            rb.velocity = new Vector2(knockBack, knockBack/2);
         }
         else
         {
-            rb.velocity = new Vector2(-knockBack, knockBack);
+            rb.velocity = new Vector2(-knockBack, knockBack/2);
+        }
+        audioManager.PlaySound(punchEnemySound);
+        Transform hitParticle = Instantiate(HitPrefab, transform.position, Quaternion.FromToRotation(Vector3.right, transform.position)) as Transform;
+        Destroy(hitParticle.gameObject, 1f);
+        StartCoroutine(ResetCollider());
+    }
+
+    public void KickEnemy(bool hitFromLeft)
+    {
+        stats.curHealth -= 40;
+        if (stats.curHealth <= 0)
+        {
+            GameMaster.KillEnemy(this);
+        }
+
+        if (hitFromLeft)
+        {
+            rb.velocity = new Vector2(knockBack * 2, knockBack);
+        }
+        else
+        {
+            rb.velocity = new Vector2(-knockBack * 2, knockBack);
         }
         audioManager.PlaySound(punchEnemySound);
         Transform hitParticle = Instantiate(HitPrefab, transform.position, Quaternion.FromToRotation(Vector3.right, transform.position)) as Transform;
