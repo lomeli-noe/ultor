@@ -27,7 +27,6 @@ public class Platformer2DUserControl : MonoBehaviour
         kickButton.onClick.AddListener(m_Character.Kick);
 
 		jumpButton = GameObject.Find("JumpButton").GetComponent<Button>();
-		jumpButton.onClick.AddListener(m_Character.Jump);
 
 		leftButton = GameObject.Find("LeftButton").GetComponent<Button>();
 
@@ -64,13 +63,14 @@ public class Platformer2DUserControl : MonoBehaviour
 		m_Jump = false;
 	}
 
-	private void Update()
+	private void FixedUpdate()
     {
 
         bool crouch = Input.GetKey(KeyCode.LeftControl);
 	
 		// Pass all parameters to the character control script.
 		m_Character.Move(horizontalMove, crouch);
+		m_Character.Jump(m_Jump);
             
     }
 }

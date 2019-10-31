@@ -19,7 +19,7 @@ public class Stats : MonoBehaviour
         {
             if (value > maxHealth)
             { currentHealth = maxHealth; }
-            else if(value < 0)
+            else if (value < 0)
             {
                 currentHealth = 0;
             }

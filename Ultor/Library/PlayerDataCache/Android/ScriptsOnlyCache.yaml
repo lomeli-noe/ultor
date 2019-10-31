@@ -27,8 +27,11 @@ ScriptsOnlyBuild:
     - AstarPath
     - Pathfinding.Seeker
     Unity.2D.Animation.Editor.dll:
+    - UnityEditor.Experimental.U2D.Animation.BoneCache
     - UnityEditor.Experimental.U2D.Animation.BoneGizmo
     - UnityEditor.Experimental.U2D.Animation.BoneReparentTool
+    - UnityEditor.Experimental.U2D.Animation.CharacterCache
+    - UnityEditor.Experimental.U2D.Animation.CharacterPartCache
     - UnityEditor.Experimental.U2D.Animation.CopyTool
     - UnityEditor.Experimental.U2D.Animation.GenerateGeometryTool
     - UnityEditor.Experimental.U2D.Animation.GenerateWeightsTool
@@ -68,10 +71,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -131,65 +132,65 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10178}
     - Class: 114
-      Script: {instanceID: 10446}
+      Script: {instanceID: 10332}
     - Class: 114
-      Script: {instanceID: 10514}
+      Script: {instanceID: 10448}
+    - Class: 114
+      Script: {instanceID: 10516}
     - Class: 114
       Script: {instanceID: 10560}
     - Class: 114
-      Script: {instanceID: 10728}
+      Script: {instanceID: 10564}
     - Class: 114
-      Script: {instanceID: 10806}
+      Script: {instanceID: 10732}
     - Class: 114
-      Script: {instanceID: 10942}
+      Script: {instanceID: 10810}
     - Class: 114
-      Script: {instanceID: 11166}
+      Script: {instanceID: 10946}
     - Class: 114
-      Script: {instanceID: 11242}
+      Script: {instanceID: 11170}
     - Class: 114
-      Script: {instanceID: 11312}
+      Script: {instanceID: 11246}
     - Class: 114
-      Script: {instanceID: 11528}
+      Script: {instanceID: 11316}
     - Class: 114
-      Script: {instanceID: 11568}
+      Script: {instanceID: 11532}
     - Class: 114
-      Script: {instanceID: 11780}
+      Script: {instanceID: 11572}
     - Class: 114
-      Script: {instanceID: 11952}
+      Script: {instanceID: 11784}
     - Class: 114
-      Script: {instanceID: 11972}
+      Script: {instanceID: 11956}
     - Class: 114
-      Script: {instanceID: 12114}
+      Script: {instanceID: 11976}
     - Class: 114
-      Script: {instanceID: 12208}
+      Script: {instanceID: 12118}
     - Class: 114
-      Script: {instanceID: 12256}
+      Script: {instanceID: 12212}
     - Class: 114
-      Script: {instanceID: 12334}
+      Script: {instanceID: 12260}
     - Class: 114
-      Script: {instanceID: 12578}
+      Script: {instanceID: 12338}
     - Class: 114
-      Script: {instanceID: 12600}
+      Script: {instanceID: 12582}
     - Class: 114
-      Script: {instanceID: 12704}
+      Script: {instanceID: 12604}
     - Class: 114
-      Script: {instanceID: 12714}
+      Script: {instanceID: 12708}
     - Class: 114
-      Script: {instanceID: 12816}
+      Script: {instanceID: 12718}
     - Class: 114
-      Script: {instanceID: 13188}
+      Script: {instanceID: 12820}
     - Class: 114
-      Script: {instanceID: 13370}
+      Script: {instanceID: 13192}
     - Class: 114
-      Script: {instanceID: 13386}
+      Script: {instanceID: 13374}
     - Class: 114
-      Script: {instanceID: 13452}
+      Script: {instanceID: 13390}
     - Class: 114
-      Script: {instanceID: 13538}
+      Script: {instanceID: 13456}
     - Class: 114
-      Script: {instanceID: 325924}
-    - Class: 114
-      Script: {instanceID: 365756}
+      Script: {instanceID: 13542}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -256,23 +257,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10178}
     - Class: 114
-      Script: {instanceID: 10498}
+      Script: {instanceID: 10500}
     - Class: 114
-      Script: {instanceID: 10942}
+      Script: {instanceID: 10946}
     - Class: 114
-      Script: {instanceID: 11676}
+      Script: {instanceID: 11680}
     - Class: 114
-      Script: {instanceID: 11780}
+      Script: {instanceID: 11784}
     - Class: 114
-      Script: {instanceID: 11980}
+      Script: {instanceID: 11984}
     - Class: 114
-      Script: {instanceID: 12406}
+      Script: {instanceID: 12410}
     - Class: 114
-      Script: {instanceID: 12704}
+      Script: {instanceID: 12708}
     - Class: 114
-      Script: {instanceID: 13130}
+      Script: {instanceID: 13134}
     - Class: 114
-      Script: {instanceID: 13452}
+      Script: {instanceID: 13456}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -507,6 +508,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BlueCoin
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Vehicles.Ball
     className: BallUserControl
@@ -600,6 +607,12 @@ ScriptsOnlyBuild:
     assemblyName: AstarPathfindingProject.dll
     namespaceName: Pathfinding
     className: SingleNodeBlocker
+  - hash:
+      serializedVersion: 2
+      Hash: 2a2d7b828da8a3c9b45cde8b8c2e6fa1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: KickTrigger
   - hash:
       serializedVersion: 2
       Hash: 71801f0e5bd4ccd6bc59d5fe4efbb4f8
@@ -956,7 +969,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 3df8984698452d5bb0d13f5adf3c28f1
+      Hash: 22a15197c07a7431d04d24be065dcd12
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy
@@ -1640,7 +1653,7 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: c668b9111a4b696c4479a02aa59b2aea
+      Hash: ca3598cedd6bafbfd01bbe7351ea8c65
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlatformerCharacter2D
@@ -1656,18 +1669,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Utility
     className: AutoMobileShaderSwitch
-  - hash:
-      serializedVersion: 2
-      Hash: 2a2d7b828da8a3c9b45cde8b8c2e6fa1
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: KickTrigger
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BlueCoin
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainMenu.unity

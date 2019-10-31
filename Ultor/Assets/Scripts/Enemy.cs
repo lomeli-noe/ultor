@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
     string punchEnemySound = "PunchEnemy";
 
     public int moneyDrop = 10;
+    public float enemyDuration = 10f;
 
     private void Start()
     {
@@ -59,7 +60,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator DestroyEnemy()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(enemyDuration);
         Destroy(this.gameObject);
     }
 

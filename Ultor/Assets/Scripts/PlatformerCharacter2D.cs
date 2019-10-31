@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Platformer2DUserControl))]
 public class PlatformerCharacter2D : MonoBehaviour
 {
-    [SerializeField] private float m_JumpForce = 300f;                  // Amount of force added when the player jumps.
+    [SerializeField] private float m_JumpForce = 3f;                  // Amount of force added when the player jumps.
     [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
     [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
@@ -21,7 +21,9 @@ public class PlatformerCharacter2D : MonoBehaviour
     Transform firePoint;
     public Transform PunchEffectPrefab;
 
-    bool canDoubleJump;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
+
 
     int count = 0;
 
@@ -33,6 +35,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 	public float camShakeLength = 0.1f;
 	CameraShake camShake;
     bool canAirKick;
+    bool canJump;
 
 	private float attackTimer = 0;
     private float attackCd = .3f;
@@ -91,7 +94,6 @@ public class PlatformerCharacter2D : MonoBehaviour
             if (colliders[i].gameObject != gameObject)
             {
                 m_Grounded = true;
-                canDoubleJump = false;
                 canAirKick = false;
             }
         }
@@ -169,7 +171,7 @@ public class PlatformerCharacter2D : MonoBehaviour
         m_Rigidbody2D.AddForce(new Vector2(m_JumpForce * 12, 0f));
         m_Rigidbody2D.velocity += Vector2.down * Physics2D.gravity.y * 10 * Time.deltaTime;
         canAirKick = false;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.15f);
         attacking = false;
         kickTrigger.enabled = false;
         m_Anim.SetBool("FlyingKick", false);
@@ -177,7 +179,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 
     IEnumerator DisableFlyingPunch()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.15f);
         attacking = false;
         punchTrigger.enabled = false;
         m_Anim.SetBool("FlyingPunch", false);
@@ -243,9 +245,8 @@ public class PlatformerCharacter2D : MonoBehaviour
             m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
             // Move the character
-            m_Rigidbody2D.velocity = new Vector2(move*Stats.instance.movementSpeed, m_Rigidbody2D.velocity.y);
+            m_Rigidbody2D.velocity = new Vector2(move*8, m_Rigidbody2D.velocity.y);
 
-            Debug.Log("Velocity: " + m_Rigidbody2D.velocity);
             // If the input is moving the player right and the player is facing left...
             if (move > 0 && !m_FacingRight)
             {
@@ -262,34 +263,35 @@ public class PlatformerCharacter2D : MonoBehaviour
         
     }
 
-    public void Jump()
+    public void Jump(bool jump)
     {
         canAirKick = true;
-        if (m_Grounded && m_Anim.GetBool("Ground"))
+        if (m_Grounded && m_Anim.GetBool("Ground") && jump && canJump)
         {
             // Add a vertical force to the player.
-            m_Grounded = false;
             m_Anim.SetBool("Ground", false);
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce/2));
-            canDoubleJump = true;
-            Invoke("EnableDoubleJump", .1f);
+            StartCoroutine(DisableJump());
+            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
         }
-        else
+        if (!jump)
         {
-            if(canDoubleJump)
+            canJump = true;
+            if (m_Rigidbody2D.velocity.y < 0)
             {
-                canDoubleJump = false;
-                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * 2));
+                m_Rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
             }
-
+            else if (m_Rigidbody2D.velocity.y > 0 && !jump)
+            {
+                m_Rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            }
         }
     }
 
-    void EnableDoubleJump()
+    IEnumerator DisableJump()
     {
-        canDoubleJump = true;
+        yield return new WaitForSeconds(.15f);
+        canJump = false;
     }
-
 
     private void Flip()
     {

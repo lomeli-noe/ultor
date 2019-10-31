@@ -65,7 +65,8 @@ public class GameMaster : MonoBehaviour
         {
             Debug.LogError("No audiomanager found!");
         }
-	}
+        audioManager.PlaySound("ScaryCumbia");
+    }
 
     public void UpgradeMenuToggle()
     {
