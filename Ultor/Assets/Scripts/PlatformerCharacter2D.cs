@@ -34,7 +34,10 @@ public class PlatformerCharacter2D : MonoBehaviour
     bool canAirKick;
     bool canJump;
 
-	private float attackTimer = 0;
+    private GameObject healthObject;
+    private Stats playerStats;
+
+    private float attackTimer = 0;
     private float attackCd = .3f;
     private bool attacking = false;
 
@@ -49,7 +52,8 @@ public class PlatformerCharacter2D : MonoBehaviour
 		{
 			Debug.LogError("No camera shake script found on GM object.");
 		}
-
+        healthObject = GameObject.Find("HealthLevel");
+        playerStats = healthObject.GetComponent<Stats>();
     }
 
     private void Awake()
@@ -236,7 +240,7 @@ public class PlatformerCharacter2D : MonoBehaviour
             m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
             // Move the character
-            m_Rigidbody2D.velocity = new Vector2(move*8, m_Rigidbody2D.velocity.y);
+            m_Rigidbody2D.velocity = new Vector2(move * playerStats.movementSpeed, m_Rigidbody2D.velocity.y);
 
             // If the input is moving the player right and the player is facing left...
             if (move > 0 && !m_FacingRight)

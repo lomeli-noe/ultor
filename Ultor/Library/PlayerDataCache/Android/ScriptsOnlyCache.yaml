@@ -13,6 +13,7 @@ ScriptsOnlyBuild:
     - GameMaster
     - GameOverUI
     - KickTrigger
+    - ManaStats
     - MenuManager
     - MoneyCounterUI
     - Parallaxing
@@ -27,11 +28,8 @@ ScriptsOnlyBuild:
     - AstarPath
     - Pathfinding.Seeker
     Unity.2D.Animation.Editor.dll:
-    - UnityEditor.Experimental.U2D.Animation.BoneCache
     - UnityEditor.Experimental.U2D.Animation.BoneGizmo
     - UnityEditor.Experimental.U2D.Animation.BoneReparentTool
-    - UnityEditor.Experimental.U2D.Animation.CharacterCache
-    - UnityEditor.Experimental.U2D.Animation.CharacterPartCache
     - UnityEditor.Experimental.U2D.Animation.CopyTool
     - UnityEditor.Experimental.U2D.Animation.GenerateGeometryTool
     - UnityEditor.Experimental.U2D.Animation.GenerateWeightsTool
@@ -76,7 +74,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
@@ -89,7 +86,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Text
     - UnityEngine.UI.VerticalLayoutGroup
     com.unity.multiplayer-hlapi.Runtime.dll:
-    - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
   sceneClasses:
     Assets/Scenes/Level1.unity:
@@ -180,17 +176,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12718}
     - Class: 114
-      Script: {instanceID: 12820}
+      Script: {instanceID: 12788}
     - Class: 114
-      Script: {instanceID: 13192}
+      Script: {instanceID: 12822}
     - Class: 114
-      Script: {instanceID: 13374}
+      Script: {instanceID: 13194}
     - Class: 114
-      Script: {instanceID: 13390}
+      Script: {instanceID: 13376}
     - Class: 114
-      Script: {instanceID: 13456}
+      Script: {instanceID: 13392}
     - Class: 114
-      Script: {instanceID: 13542}
+      Script: {instanceID: 13458}
+    - Class: 114
+      Script: {instanceID: 13544}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -271,9 +269,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12708}
     - Class: 114
-      Script: {instanceID: 13134}
+      Script: {instanceID: 13136}
     - Class: 114
-      Script: {instanceID: 13456}
+      Script: {instanceID: 13458}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1411,6 +1409,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Utility
     className: FollowTarget
+  - hash:
+      serializedVersion: 2
+      Hash: 11e4a1faba1685f9fea4128eb7f05655
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ManaStats
   - hash:
       serializedVersion: 2
       Hash: 9bf3a2b7413396f7dba63cae75de745a

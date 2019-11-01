@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\GameOverUI.cs" />
     <Compile Include="Assets\Scripts\KickTrigger.cs" />
     <Compile Include="Assets\Scripts\LivesCounterUI.cs" />
+    <Compile Include="Assets\Scripts\ManaStats.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\MoneyCounterUI.cs" />
     <Compile Include="Assets\Scripts\MoveTrail.cs" />
