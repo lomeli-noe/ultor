@@ -24,9 +24,6 @@ public class PlatformerCharacter2D : MonoBehaviour
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
 
-
-    int count = 0;
-
     AudioManager audioManager;
 	[SerializeField]
 	string whooshSound = "Whoosh";
@@ -52,9 +49,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 		{
 			Debug.LogError("No camera shake script found on GM object.");
 		}
-        int enemyLayer = LayerMask.NameToLayer("Enemy");
-        int playerLayer = LayerMask.NameToLayer("Player");
-        Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
+
     }
 
     private void Awake()
@@ -156,7 +151,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 
     IEnumerator PunchEffect()
     {
-        yield return new WaitForSeconds(.05f);
+        yield return new WaitForSeconds(.15f);
 		audioManager.PlaySound(whooshSound);
 		Transform clone = Instantiate(PunchEffectPrefab, firePoint.position, firePoint.rotation) as Transform;
         clone.parent = firePoint;
@@ -208,13 +203,9 @@ public class PlatformerCharacter2D : MonoBehaviour
 
     IEnumerator StopHurtEffect(float duration)
     {
-        int enemyLayer = LayerMask.NameToLayer("Enemy");
-        int playerLayer = LayerMask.NameToLayer("Player");
-        Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer);
 
         m_Anim.SetLayerWeight(1, 1);
         yield return new WaitForSeconds(duration);
-        Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false );
         m_Anim.SetLayerWeight(1, 0);
 
     }

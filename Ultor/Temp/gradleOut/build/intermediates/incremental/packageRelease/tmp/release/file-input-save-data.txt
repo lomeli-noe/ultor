@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Oct 31 16:14:26 PDT 2019
+#Thu Oct 31 17:19:17 PDT 2019
 2.path=bin/Data/Managed/UnityEngine.UmbraModule.dll
 14.set=ASSET
 107.baseType=DIRECTORY

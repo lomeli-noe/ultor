@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System;
+using System.Collections;
 
 [RequireComponent(typeof(Platformer2DUserControl))]
 public class Player : MonoBehaviour
@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     private GameObject healthObject;
     private GameObject manaObject;
 
+    private bool canHurt;
+
     public float invincibleTime = 2f;
 
     public int fallBoundary = -20;
@@ -34,6 +36,8 @@ public class Player : MonoBehaviour
         health.MyCurrentValue = health.maxHealth;
 
         InvokeRepeating("RegenHealth", 1f/health.healthRegenRate, 1f/health.healthRegenRate);
+
+        canHurt = true;
 	}
 
 
@@ -70,16 +74,25 @@ public class Player : MonoBehaviour
 
     public void DamagePlayer(int damage)
     {
-		health.MyCurrentValue -= damage;
-        AudioManager.instance.PlaySound("PunchPlayer");
+        if (canHurt)
+        {
+            health.MyCurrentValue -= damage;
+            AudioManager.instance.PlaySound("PunchPlayer");
+            StartCoroutine(DisableDamagePlayer());
+        }
+        
         if (health.MyCurrentValue <= 0)
         {
             GameMaster.KillPlayer(this);
 		}
-
-        GetComponent<PlatformerCharacter2D>().HurtEffect(invincibleTime);
-
     }
-    
+
+    IEnumerator DisableDamagePlayer()
+    {
+        canHurt = false;
+        GetComponent<PlatformerCharacter2D>().HurtEffect(invincibleTime);
+        yield return new WaitForSeconds(invincibleTime);
+        canHurt = true;
+    }
 
 }
