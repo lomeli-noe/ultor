@@ -36,9 +36,13 @@ public class Enemy : MonoBehaviour
 
     public int moneyDrop = 10;
     public float enemyDuration = 10f;
+    private bool canHurtPlayer;
+    private bool canHurtEnemy;
+    private Animator m_Anim;
 
     private void Start()
     {
+        m_Anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         boxCol = GetComponent<BoxCollider2D>();
         stats.Init();
@@ -54,12 +58,28 @@ public class Enemy : MonoBehaviour
         int enemyLayer = LayerMask.NameToLayer("Enemy");
         Physics2D.IgnoreLayerCollision(enemyLayer, enemyLayer, true);
         StartCoroutine(DestroyEnemy());
+        StartCoroutine(ResetDamage());
+    }
 
+    IEnumerator ResetDamage()
+    {
+        canHurtPlayer = false;
+        canHurtEnemy = false;
+        yield return new WaitForSeconds(1f);
+        canHurtPlayer = true;
+        canHurtEnemy = true;
     }
 
     IEnumerator DestroyEnemy()
     {
         yield return new WaitForSeconds(enemyDuration);
+        StartCoroutine(Descend());
+    }
+
+    IEnumerator Descend()
+    {
+        m_Anim.SetBool("Descend", true);
+        yield return new WaitForSeconds(.2f);
         Destroy(this.gameObject);
     }
 
@@ -79,46 +99,52 @@ public class Enemy : MonoBehaviour
 
     public void PunchEnemy(bool hitFromLeft)
     {
-        stats.curHealth -= 20;
-        if (stats.curHealth <= 0)
+        if (canHurtEnemy)
         {
-            GameMaster.KillEnemy(this);
-        }
+            stats.curHealth -= 20;
+            if (stats.curHealth <= 0)
+            {
+                GameMaster.KillEnemy(this);
+            }
 
-        if (hitFromLeft)
-        {
-            rb.velocity = new Vector2(knockBack, knockBack/2);
+            if (hitFromLeft)
+            {
+                rb.velocity = new Vector2(knockBack, knockBack / 2);
+            }
+            else
+            {
+                rb.velocity = new Vector2(-knockBack, knockBack / 2);
+            }
+            audioManager.PlaySound(punchEnemySound);
+            Transform hitParticle = Instantiate(HitPrefab, transform.position, Quaternion.FromToRotation(Vector3.right, transform.position)) as Transform;
+            Destroy(hitParticle.gameObject, 1f);
+            StartCoroutine(ResetCollider());
         }
-        else
-        {
-            rb.velocity = new Vector2(-knockBack, knockBack/2);
-        }
-        audioManager.PlaySound(punchEnemySound);
-        Transform hitParticle = Instantiate(HitPrefab, transform.position, Quaternion.FromToRotation(Vector3.right, transform.position)) as Transform;
-        Destroy(hitParticle.gameObject, 1f);
-        StartCoroutine(ResetCollider());
     }
 
     public void KickEnemy(bool hitFromLeft)
     {
-        stats.curHealth -= 40;
-        if (stats.curHealth <= 0)
+        if (canHurtEnemy)
         {
-            GameMaster.KillEnemy(this);
-        }
+            stats.curHealth -= 40;
+            if (stats.curHealth <= 0)
+            {
+                GameMaster.KillEnemy(this);
+            }
 
-        if (hitFromLeft)
-        {
-            rb.velocity = new Vector2(knockBack * 2, knockBack);
+            if (hitFromLeft)
+            {
+                rb.velocity = new Vector2(knockBack * 2, knockBack);
+            }
+            else
+            {
+                rb.velocity = new Vector2(-knockBack * 2, knockBack);
+            }
+            audioManager.PlaySound(punchEnemySound);
+            Transform hitParticle = Instantiate(HitPrefab, transform.position, Quaternion.FromToRotation(Vector3.right, transform.position)) as Transform;
+            Destroy(hitParticle.gameObject, 1f);
+            StartCoroutine(ResetCollider());
         }
-        else
-        {
-            rb.velocity = new Vector2(-knockBack * 2, knockBack);
-        }
-        audioManager.PlaySound(punchEnemySound);
-        Transform hitParticle = Instantiate(HitPrefab, transform.position, Quaternion.FromToRotation(Vector3.right, transform.position)) as Transform;
-        Destroy(hitParticle.gameObject, 1f);
-        StartCoroutine(ResetCollider());
     }
 
     IEnumerator ResetCollider()
@@ -131,7 +157,7 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Player _player = collision.collider.GetComponent<Player>();
-        if(_player != null)
+        if(_player != null && canHurtPlayer)
         {
             _player.DamagePlayer(stats.damage);
         }

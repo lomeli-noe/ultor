@@ -21,10 +21,8 @@ public class Platformer2DUserControl : MonoBehaviour
     void Start()
 	{
         punchButton = GameObject.Find("Punch").GetComponent<Button>();
-        punchButton.onClick.AddListener(m_Character.Punch);
 
         kickButton = GameObject.Find("Kick").GetComponent<Button>();
-        kickButton.onClick.AddListener(m_Character.Kick);
 
 		jumpButton = GameObject.Find("JumpButton").GetComponent<Button>();
 

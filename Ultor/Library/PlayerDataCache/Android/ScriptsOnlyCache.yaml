@@ -29,26 +29,6 @@ ScriptsOnlyBuild:
     - Pathfinding.Seeker
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.Experimental.U2D.Animation.BoneGizmo
-    - UnityEditor.Experimental.U2D.Animation.BoneReparentTool
-    - UnityEditor.Experimental.U2D.Animation.CopyTool
-    - UnityEditor.Experimental.U2D.Animation.GenerateGeometryTool
-    - UnityEditor.Experimental.U2D.Animation.GenerateWeightsTool
-    - UnityEditor.Experimental.U2D.Animation.MeshCache
-    - UnityEditor.Experimental.U2D.Animation.MeshPreviewCache
-    - UnityEditor.Experimental.U2D.Animation.MeshPreviewTool
-    - UnityEditor.Experimental.U2D.Animation.MeshTool
-    - UnityEditor.Experimental.U2D.Animation.MeshToolWrapper
-    - UnityEditor.Experimental.U2D.Animation.SelectionTool
-    - UnityEditor.Experimental.U2D.Animation.SkeletonCache
-    - UnityEditor.Experimental.U2D.Animation.SkeletonTool
-    - UnityEditor.Experimental.U2D.Animation.SkeletonToolWrapper
-    - UnityEditor.Experimental.U2D.Animation.SkinningCache
-    - UnityEditor.Experimental.U2D.Animation.SpriteBoneInfluenceTool
-    - UnityEditor.Experimental.U2D.Animation.SpriteCache
-    - UnityEditor.Experimental.U2D.Animation.SwitchModeTool
-    - UnityEditor.Experimental.U2D.Animation.VisibilityTool
-    - UnityEditor.Experimental.U2D.Animation.WeightPainterTool
-    - UnityEditor.Experimental.U2D.Animation.WeightPainterToolWrapper
     Unity.2D.Animation.Runtime.dll:
     - UnityEngine.Experimental.U2D.Animation.SpriteSkin
     Unity.2D.IK.Editor.dll:
@@ -69,11 +49,14 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
@@ -86,6 +69,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Text
     - UnityEngine.UI.VerticalLayoutGroup
     com.unity.multiplayer-hlapi.Runtime.dll:
+    - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
   sceneClasses:
     Assets/Scenes/Level1.unity:
