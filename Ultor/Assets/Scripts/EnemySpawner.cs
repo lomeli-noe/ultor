@@ -22,8 +22,16 @@ public class EnemySpawner : MonoBehaviour
             randX = Random.Range(-7f, 7f);
             spawnRate = Random.Range(5f, spawnRate);
             whereToSpawn = new Vector2(transform.position.x + randX, transform.position.y);
-            Instantiate(enemy, whereToSpawn, Quaternion.identity);
+            GameObject clone = Instantiate(enemy, whereToSpawn, Quaternion.identity);
+            StartCoroutine(ResetAI(clone));
         }
+    }
+
+    IEnumerator ResetAI(GameObject clone)
+    {
+        clone.GetComponent<EnemyAI>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        clone.GetComponent<EnemyAI>().enabled = true;
     }
 
     IEnumerator FirstSpawn()
