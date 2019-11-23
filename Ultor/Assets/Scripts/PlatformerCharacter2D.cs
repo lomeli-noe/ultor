@@ -20,6 +20,7 @@ public class PlatformerCharacter2D : MonoBehaviour
     Transform playerGraphics;
     Transform firePoint;
     public Transform PunchEffectPrefab;
+    private float mercyJump;
 
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
@@ -76,7 +77,7 @@ public class PlatformerCharacter2D : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+    private void Update()
     {
         m_Grounded = false;
 		audioManager = AudioManager.instance;
@@ -94,9 +95,15 @@ public class PlatformerCharacter2D : MonoBehaviour
             {
                 m_Grounded = true;
                 canAirKick = false;
+                mercyJump = .15f;
             }
         }
         m_Anim.SetBool("Ground", m_Grounded);
+
+        if (!m_Grounded)
+        {
+            mercyJump -= Time.deltaTime;
+        }
 
         // Set the vertical animation
         m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
@@ -261,13 +268,14 @@ public class PlatformerCharacter2D : MonoBehaviour
     public void Jump(bool jump)
     {
         canAirKick = true;
-        if (m_Grounded && m_Anim.GetBool("Ground") && jump && canJump)
+        if (m_Grounded && m_Anim.GetBool("Ground") && jump && canJump || !m_Grounded && jump && canJump && mercyJump > 0)
         {
             // Add a vertical force to the player.
             m_Anim.SetBool("Ground", false);
             StartCoroutine(DisableJump());
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
         }
+        
         if (!jump)
         {
             canJump = true;
