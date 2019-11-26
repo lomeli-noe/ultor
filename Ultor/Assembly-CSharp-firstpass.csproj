@@ -445,20 +445,20 @@
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
       <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Advertisements.Editor">
+      <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Advertisements">
       <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>/Users/sinistro/Documents/Ultor/ultor/Ultor/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.7f2/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

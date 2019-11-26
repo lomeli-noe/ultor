@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Platformer2DUserControl))]
 public class PlatformerCharacter2D : MonoBehaviour
 {
-    [SerializeField] private float m_JumpForce = 300f;                  // Amount of force added when the player jumps.
+    [SerializeField] private float m_JumpForce = 3f;                  // Amount of force added when the player jumps.
     [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
     [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
@@ -19,6 +20,10 @@ public class PlatformerCharacter2D : MonoBehaviour
     Transform playerGraphics;
     Transform firePoint;
     public Transform PunchEffectPrefab;
+    private float mercyJump;
+
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
 
     AudioManager audioManager;
 	[SerializeField]
@@ -27,13 +32,18 @@ public class PlatformerCharacter2D : MonoBehaviour
 	public float camShakeAmt = 0.05f;
 	public float camShakeLength = 0.1f;
 	CameraShake camShake;
+    bool canAirKick;
+    bool canJump;
 
+    private GameObject healthObject;
+    private Stats playerStats;
 
-	private float attackTimer = 0;
+    private float attackTimer = 0;
     private float attackCd = .3f;
     private bool attacking = false;
 
-    public Collider2D attackTrigger;
+    public Collider2D punchTrigger;
+    public Collider2D kickTrigger;
 
 		private void Start()
 	{
@@ -43,10 +53,8 @@ public class PlatformerCharacter2D : MonoBehaviour
 		{
 			Debug.LogError("No camera shake script found on GM object.");
 		}
-        int enemyLayer = LayerMask.NameToLayer("Enemy");
-        int playerLayer = LayerMask.NameToLayer("Player");
-        Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
-
+        healthObject = GameObject.Find("HealthLevel");
+        playerStats = healthObject.GetComponent<Stats>();
     }
 
     private void Awake()
@@ -64,14 +72,14 @@ public class PlatformerCharacter2D : MonoBehaviour
             Debug.LogError("No Graphics object as a child of player");
         }
 
-        attackTrigger.enabled = false;
+        punchTrigger.enabled = false;
+        kickTrigger.enabled = false;
     }
 
 
-    private void FixedUpdate()
+    private void Update()
     {
         m_Grounded = false;
-
 		audioManager = AudioManager.instance;
 		if (audioManager == null)
 		{
@@ -84,9 +92,18 @@ public class PlatformerCharacter2D : MonoBehaviour
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
+            {
                 m_Grounded = true;
+                canAirKick = false;
+                mercyJump = .15f;
+            }
         }
         m_Anim.SetBool("Ground", m_Grounded);
+
+        if (!m_Grounded)
+        {
+            mercyJump -= Time.deltaTime;
+        }
 
         // Set the vertical animation
         m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
@@ -103,14 +120,15 @@ public class PlatformerCharacter2D : MonoBehaviour
                 m_Anim.SetBool("FlyingPunch", attacking);
 
                 StartCoroutine(DisableFlyingPunch());
-                attackTrigger.enabled = true;
+                punchTrigger.enabled = true;
                 StartCoroutine(PunchEffect());
+                m_Rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * 10 * Time.deltaTime;
             }
             else
             {
                 m_Anim.SetBool("Punch", attacking);
                 StartCoroutine(DisablePunch());
-                attackTrigger.enabled = true;
+                punchTrigger.enabled = true;
                 StartCoroutine(PunchEffect());
             }
         }
@@ -122,28 +140,29 @@ public class PlatformerCharacter2D : MonoBehaviour
         if (!attacking)
         {
             attacking = true;
-
-            if (!m_Grounded && !m_Anim.GetBool("FlyingKick"))
+            if (!m_Grounded && !m_Anim.GetBool("FlyingKick") && canAirKick)
             {
                 m_Anim.SetBool("FlyingKick", attacking);
                 StartCoroutine(DisableFlyingKick());
-                attackTrigger.enabled = true;
+                kickTrigger.enabled = true;
                 StartCoroutine(PunchEffect());
+                attacking = false;
             }
-            else
+            if(m_Grounded)
             {
                 m_Anim.SetBool("Kick", attacking);
                 StartCoroutine(DisableKick());
-                attackTrigger.enabled = true;
+                kickTrigger.enabled = true;
                 StartCoroutine(PunchEffect());
             }
+            attacking = false;
         }
             
     }
 
     IEnumerator PunchEffect()
     {
-        yield return new WaitForSeconds(.05f);
+        yield return new WaitForSeconds(.15f);
 		audioManager.PlaySound(whooshSound);
 		Transform clone = Instantiate(PunchEffectPrefab, firePoint.position, firePoint.rotation) as Transform;
         clone.parent = firePoint;
@@ -155,33 +174,36 @@ public class PlatformerCharacter2D : MonoBehaviour
 
     IEnumerator DisableFlyingKick()
     {
-        yield return new WaitForSeconds(.25f);
+        m_Rigidbody2D.AddForce(new Vector2(m_JumpForce * 12, 0f));
+        m_Rigidbody2D.velocity += Vector2.down * Physics2D.gravity.y * 10 * Time.deltaTime;
+        canAirKick = false;
+        yield return new WaitForSeconds(.15f);
         attacking = false;
-        attackTrigger.enabled = false;
+        kickTrigger.enabled = false;
         m_Anim.SetBool("FlyingKick", false);
     }
 
     IEnumerator DisableFlyingPunch()
     {
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.15f);
         attacking = false;
-        attackTrigger.enabled = false;
+        punchTrigger.enabled = false;
         m_Anim.SetBool("FlyingPunch", false);
     }
 
     IEnumerator DisablePunch()
     {
-        yield return new WaitForSeconds(.07f);
+        yield return new WaitForSeconds(.15f);
         attacking = false;
-        attackTrigger.enabled = false;
+        punchTrigger.enabled = false;
         m_Anim.SetBool("Punch", false);
     }
 
     IEnumerator DisableKick()
     {
-        yield return new WaitForSeconds(.09f);
+        yield return new WaitForSeconds(.15f);
         attacking = false;
-        attackTrigger.enabled = false;
+        kickTrigger.enabled = false;
         m_Anim.SetBool("Kick", false);
     }
 
@@ -192,18 +214,14 @@ public class PlatformerCharacter2D : MonoBehaviour
 
     IEnumerator StopHurtEffect(float duration)
     {
-        int enemyLayer = LayerMask.NameToLayer("Enemy");
-        int playerLayer = LayerMask.NameToLayer("Player");
-        Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer);
 
         m_Anim.SetLayerWeight(1, 1);
         yield return new WaitForSeconds(duration);
-        Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false );
         m_Anim.SetLayerWeight(1, 0);
 
     }
 
-    public void Move(float move, bool crouch, bool jump)
+    public void Move(float move, bool crouch)
     {
         // If crouching, check to see if the character can stand up
         if (!crouch && m_Anim.GetBool("Crouch"))
@@ -229,7 +247,7 @@ public class PlatformerCharacter2D : MonoBehaviour
             m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
             // Move the character
-            m_Rigidbody2D.velocity = new Vector2(move*Stats.instance.movementSpeed, m_Rigidbody2D.velocity.y);
+            m_Rigidbody2D.velocity = new Vector2(move * playerStats.movementSpeed, m_Rigidbody2D.velocity.y);
 
             // If the input is moving the player right and the player is facing left...
             if (move > 0 && !m_FacingRight)
@@ -244,16 +262,39 @@ public class PlatformerCharacter2D : MonoBehaviour
                 Flip();
             }
         }
-        // If the player should jump...
-        if (m_Grounded && jump && m_Anim.GetBool("Ground"))
+        
+    }
+
+    public void Jump(bool jump)
+    {
+        canAirKick = true;
+        if (m_Grounded && m_Anim.GetBool("Ground") && jump && canJump || !m_Grounded && jump && canJump && mercyJump > 0)
         {
             // Add a vertical force to the player.
-            m_Grounded = false;
             m_Anim.SetBool("Ground", false);
+            StartCoroutine(DisableJump());
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+        }
+        
+        if (!jump)
+        {
+            canJump = true;
+            if (m_Rigidbody2D.velocity.y < 0)
+            {
+                m_Rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            }
+            else if (m_Rigidbody2D.velocity.y > 0 && !jump)
+            {
+                m_Rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            }
         }
     }
 
+    IEnumerator DisableJump()
+    {
+        yield return new WaitForSeconds(.15f);
+        canJump = false;
+    }
 
     private void Flip()
     {

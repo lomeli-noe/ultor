@@ -27,7 +27,7 @@ public class GameMaster : MonoBehaviour
     public string spawnSoundName;
 
 	[SerializeField]
-	private int maxLives = 3;
+	private int maxLives = 1;
 
 	[SerializeField]
 	private GameObject gameOverUI;
@@ -65,7 +65,8 @@ public class GameMaster : MonoBehaviour
         {
             Debug.LogError("No audiomanager found!");
         }
-	}
+        audioManager.PlaySound("ScaryCumbia");
+    }
 
     public void UpgradeMenuToggle()
     {
@@ -78,7 +79,6 @@ public class GameMaster : MonoBehaviour
 
     public void EndGame()
 	{
-		Debug.Log("GAME OVER!!!");
 		gameOverUI.SetActive(true);
 	}
 

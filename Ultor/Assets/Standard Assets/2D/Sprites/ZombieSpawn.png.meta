@@ -1,0 +1,595 @@
+fileFormatVersion: 2
+guid: d5822254fa48b4d2b982e6b5e04265ba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4152186780535535794
+    second: ZombieSpawn_0
+  - first:
+      213: -73736604256796659
+    second: ZombieSpawn_1
+  - first:
+      213: -1699096579461822780
+    second: ZombieSpawn_2
+  - first:
+      213: 8624869710981472382
+    second: ZombieSpawn_3
+  - first:
+      213: -354532125815924547
+    second: ZombieSpawn_4
+  - first:
+      213: -5225004657730951194
+    second: ZombieSpawn_5
+  - first:
+      213: -5530332295375489471
+    second: ZombieSpawn_6
+  - first:
+      213: -3013107648135767177
+    second: ZombieSpawn_7
+  - first:
+      213: -6111932771271966623
+    second: ZombieSpawn_8
+  - first:
+      213: -7610416806950337969
+    second: ZombieSpawn_9
+  - first:
+      213: 394326707368681597
+    second: ZombieSpawn_10
+  - first:
+      213: 1227051085845908271
+    second: ZombieSpawn_11
+  - first:
+      213: 6292620267531610391
+    second: ZombieSpawn_12
+  - first:
+      213: -4447458693654358474
+    second: ZombieSpawn_13
+  - first:
+      213: -8765976881681895903
+    second: ZombieSpawn_14
+  - first:
+      213: -4993047512144000231
+    second: ZombieSpawn_15
+  - first:
+      213: -8949499376249205061
+    second: ZombieSpawn_16
+  - first:
+      213: 1722854152119656694
+    second: ZombieSpawn_17
+  - first:
+      213: 7837883909746479243
+    second: ZombieSpawn_18
+  - first:
+      213: 2306933439918647
+    second: ZombieSpawn_19
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 190
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ZombieSpawn_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 389
+        width: 355
+        height: 489
+      alignment: 9
+      pivot: {x: 0.50439215, y: 0.0036480052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 130e0ea1df10648e0ab991e158438b48
+      internalID: 4152186780535535794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_1
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 386
+        width: 360
+        height: 416
+      alignment: 9
+      pivot: {x: 0.50000036, y: 0.0030828624}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7b359b8c44984b089a546af9ddd58f5
+      internalID: -73736604256796659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_2
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 428
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 729934e0b9df84c24a4ad6177d0c2f25
+      internalID: -1699096579461822780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_3
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 388
+        width: 357
+        height: 340
+      alignment: 9
+      pivot: {x: 0.49305293, y: 0.01081139}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e2900e10349d42b9b12543ff4d4f8ad
+      internalID: 8624869710981472382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_4
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 393
+        width: 334
+        height: 260
+      alignment: 9
+      pivot: {x: 0.4925749, y: 0.020560984}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4723f225351341b8b845df8a63a3f5f
+      internalID: -354532125815924547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 152
+        width: 5
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dc8085e33f4a422280e919e3285a7d6
+      internalID: -5225004657730951194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_6
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 275
+        width: 122
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d6cf44f94cf942c39bdbf24f31e6d39
+      internalID: -5530332295375489471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_7
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 260
+        width: 148
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6bab2a8f58cd42eaa94174091935356
+      internalID: -3013107648135767177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_8
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 201
+        width: 122
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1c7d5720c91f4dc08a3638f9a54d108
+      internalID: -6111932771271966623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_9
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 17
+        width: 334
+        height: 146
+      alignment: 9
+      pivot: {x: 0.49999994, y: 0.020922218}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e194983c46175473490a32f27d230e2b
+      internalID: -7610416806950337969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_10
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 28
+        width: 335
+        height: 83
+      alignment: 9
+      pivot: {x: 0.5000002, y: 0.024427759}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10db50ddfd1bf49d8b181c1a9e2cc9f6
+      internalID: 394326707368681597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_11
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 36
+        width: 296
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5000002, y: 0.045892112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ece52ec96fd06473c86bddf46e0e4418
+      internalID: 1227051085845908271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_12
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 106
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2540ed8031de64cdeab66a75317dfedc
+      internalID: 6292620267531610391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_13
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 67
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9810967f58ac24a0fb7902e8528601cb
+      internalID: -4447458693654358474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_14
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 39
+        width: 206
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5000012, y: -0.009644853}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4601b0e48865d4fa188398204d15c401
+      internalID: -8765976881681895903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_15
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 55
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 573942ffa2aec4f1db998b4ed00f1061
+      internalID: -4993047512144000231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_16
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 77
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 375ff17d39b9c4a55bce2975b1e9a209
+      internalID: -8949499376249205061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_17
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 49
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3539557506f8641b091ebdcdb8103411
+      internalID: 1722854152119656694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_18
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 46
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e862a133c31d4d958cc2ec350c763d3
+      internalID: 7837883909746479243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZombieSpawn_19
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 0
+        width: 184
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe6504053cfc64a658a6aef61d805c42
+      internalID: 2306933439918647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

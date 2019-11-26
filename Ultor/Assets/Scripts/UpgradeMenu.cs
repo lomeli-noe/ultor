@@ -18,18 +18,20 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField]
     private int upgradeCost = 50;
 
-    private Stats stats;
+	private GameObject healthObject;
+	private Stats playerStats;
 
-    private void OnEnable()
+	private void OnEnable()
     {
-        stats = Stats.instance;
-        UpdateValues();
+		healthObject = GameObject.Find("HealthLevel");
+		playerStats = healthObject.GetComponent<Stats>();
+		UpdateValues();
     }
 
     void UpdateValues()
     {
-        healthText.text = "HEALTH: " + stats.maxHealth.ToString();
-        speedText.text = "SPEED: " + stats.movementSpeed.ToString();
+        healthText.text = "HEALTH: " + playerStats.maxHealth.ToString();
+        speedText.text = "SPEED: " + playerStats.movementSpeed.ToString();
     }
 
     public void UpgradeHealth()
@@ -40,7 +42,7 @@ public class UpgradeMenu : MonoBehaviour
             return;
         }
 
-        stats.maxHealth = (int)(stats.maxHealth * healthMultiplier);
+		playerStats.maxHealth = (int)(playerStats.maxHealth * healthMultiplier);
         GameMaster.money -= upgradeCost;
         AudioManager.instance.PlaySound("Money");
         UpdateValues(); 
@@ -54,7 +56,7 @@ public class UpgradeMenu : MonoBehaviour
             return;
         }
 
-        stats.movementSpeed = Mathf.Round(stats.movementSpeed * movementSpeedMultiplier);
+		playerStats.movementSpeed = Mathf.Round(playerStats.movementSpeed * movementSpeedMultiplier);
         GameMaster.money -= upgradeCost;
         AudioManager.instance.PlaySound("Money");
         UpdateValues();
