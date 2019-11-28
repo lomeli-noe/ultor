@@ -1,0 +1,4 @@
+#Thu Nov 28 12:35:11 PST 2019
+base.0=/Users/sinistro/Documents/Ultor/ultor/Ultor/Temp/gradleOut/build/intermediates/transforms/dexMerger/release/0
+path.0=classes.dex
+renamed.0=classes.dex

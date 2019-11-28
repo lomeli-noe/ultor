@@ -273,7 +273,7 @@ public class PlatformerCharacter2D : MonoBehaviour
             // Add a vertical force to the player.
             m_Anim.SetBool("Ground", false);
             StartCoroutine(DisableJump());
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            m_Rigidbody2D.AddForce(transform.up * m_JumpForce);
         }
         
         if (!jump)
